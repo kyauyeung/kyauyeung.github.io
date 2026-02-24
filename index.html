@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyle Auyeung - Computer Engineer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Press Start 2P', cursive;
+            line-height: 1.8;
+            color: #e4e4e7;
+            background: #0a0a0a;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            transition: background 0.3s ease;
+            image-rendering: pixelated;
+        }
+        
+        body.page-home { background: #0a0a0a; }
+        body.page-projects { background: #0a0a14; }
+        body.page-art { background: #140a0f; }
+        body.page-fitness { background: #0a140f; }
+        body.page-leadership { background: #140f0a; }
+        body.page-lifestyle { background: #0f0a14; }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #0a0a0a;
+            border-bottom: 4px solid #c4ff0d;
+            box-shadow: 0 4px 0 #000;
+            transition: border-color 0.3s ease;
+        }
+        
+        body.page-home header { border-bottom-color: #3b82f6; }
+        body.page-projects header { border-bottom-color: #a78bfa; }
+        body.page-art header { border-bottom-color: #f472b6; }
+        body.page-fitness header { border-bottom-color: #34d399; }
+        body.page-leadership header { border-bottom-color: #f87171; }
+        body.page-lifestyle header { border-bottom-color: #fb923c; }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 0.8em;
+            font-weight: 400;
+            color: #fff;
+            letter-spacing: 0.05em;
+            text-shadow: 3px 3px 0px #000;
+        }
+        
+        .logo span {
+            color: #3b82f6;
+            transition: color 0.3s ease;
+        }
+        
+        body.page-home .logo span {
+            color: #ffffff;
+        }
+        
+        body.page-projects .logo span {
+            color: #a78bfa;
+        }
+        
+        body.page-art .logo span {
+            color: #f472b6;
+        }
+        
+        body.page-fitness .logo span {
+            color: #34d399;
+        }
+        
+        body.page-leadership .logo span {
+            color: #f87171;
+        }
+        
+        body.page-lifestyle .logo span {
+            color: #fb923c;
+        }
+        
+        body.page-home .logo span { color: #c4ff0d; }
+        body.page-projects .logo span { color: #a78bfa; }
+        body.page-art .logo span { color: #f472b6; }
+        body.page-fitness .logo span { color: #34d399; }
+        body.page-leadership .logo span { color: #f87171; }
+        body.page-lifestyle .logo span { color: #fb923c; }
+        
+        h1 {
+            font-size: 2.5em;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #3b82f6;
+            line-height: 1.4;
+            letter-spacing: 0.02em;
+            text-shadow: 4px 4px 0px #000;
+        }
+        
+        .tagline {
+            font-size: 0.65em;
+            margin-bottom: 30px;
+            color: #ffffff;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            line-height: 1.8;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .nav-buttons button {
+            color: #a1a1aa;
+            background: transparent;
+            border: 2px solid transparent;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.5em;
+            font-weight: 400;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.1s ease;
+            letter-spacing: 0.05em;
+        }
+        
+        .nav-buttons button:hover {
+            color: #fff;
+            border-color: #fff;
+            box-shadow: 3px 3px 0px #000;
+            transform: translate(-2px, -2px);
+        }
+        
+        .nav-buttons button.active {
+            border: 2px solid #3b82f6;
+            box-shadow: 3px 3px 0px #000;
+            position: relative;
+        }
+        
+        .nav-buttons button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #3b82f6;
+        }
+        
+        body.page-home .nav-buttons button.active {
+            color: #3b82f6;
+            border-color: #3b82f6;
+        }
+        
+        body.page-home .nav-buttons button.active::after {
+            background: #3b82f6;
+        }
+        
+        body.page-projects .nav-buttons button.active {
+            color: #a78bfa;
+            border-color: #a78bfa;
+        }
+        
+        body.page-projects .nav-buttons button.active::after {
+            background: #a78bfa;
+        }
+        
+        body.page-art .nav-buttons button.active {
+            color: #f472b6;
+            border-color: #f472b6;
+        }
+        
+        body.page-art .nav-buttons button.active::after {
+            background: #f472b6;
+        }
+        
+        body.page-fitness .nav-buttons button.active {
+            color: #34d399;
+            border-color: #34d399;
+        }
+        
+        body.page-fitness .nav-buttons button.active::after {
+            background: #34d399;
+        }
+        
+        body.page-leadership .nav-buttons button.active {
+            color: #f87171;
+            border-color: #f87171;
+        }
+        
+        body.page-leadership .nav-buttons button.active::after {
+            background: #f87171;
+        }
+        
+        body.page-lifestyle .nav-buttons button.active {
+            color: #fb923c;
+            border-color: #fb923c;
+        }
+        
+        body.page-lifestyle .nav-buttons button.active::after {
+            background: #fb923c;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #000;
+            border: 3px solid #3b82f6;
+            color: #3b82f6;
+            font-size: 0.5em;
+            font-weight: 400;
+            margin-bottom: 30px;
+            letter-spacing: 0.05em;
+            box-shadow: 4px 4px 0px #3b82f6;
+        }
+        
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-links a,
+        .contact-links .email-contact {
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 20px;
+            background: #000;
+            border: 3px solid #fff;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.45em;
+            font-weight: 400;
+            transition: all 0.1s ease;
+            text-align: center;
+            display: inline-block;
+            cursor: pointer;
+            letter-spacing: 0.05em;
+            box-shadow: 4px 4px 0px #fff;
+        }
+        
+        .contact-links a:hover,
+        .contact-links .email-contact:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 7px 7px 0px #fff;
+        }
+        
+        .primary-btn {
+            background: #3b82f6 !important;
+            color: #000 !important;
+            border: 3px solid #3b82f6 !important;
+            box-shadow: 4px 4px 0px #000 !important;
+        }
+        
+        .primary-btn:hover {
+            box-shadow: 7px 7px 0px #000 !important;
+        }
+        
+        .main-content {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+        
+        .page { display: none; }
+        .page.active { display: block; }
+        
+        section {
+            margin-bottom: 80px;
+            padding: 60px 0;
+        }
+        
+        h2 {
+            font-size: 1.5em;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 50px;
+            letter-spacing: 0.05em;
+            position: relative;
+            padding-bottom: 20px;
+            text-shadow: 3px 3px 0px #000;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: repeating-linear-gradient(90deg, #3b82f6 0px, #3b82f6 10px, transparent 10px, transparent 20px);
+        }
+        
+        .experience-item, .project-item, .education-item, .interest-detail {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #000;
+            border: 3px solid #3b82f6;
+            transition: all 0.1s ease;
+            box-shadow: 6px 6px 0px #3b82f6;
+        }
+        
+        .experience-item:hover, .project-item:hover, .education-item:hover, .interest-detail:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0px #3b82f6;
+        }
+        
+        h3 {
+            color: #3b82f6;
+            font-size: 0.8em;
+            margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+        
+        p, li {
+            font-size: 0.55em;
+            line-height: 1.8;
+        }
+        
+        .date {
+            color: #71717a;
+            font-style: normal;
+            margin-bottom: 15px;
+            font-size: 0.5em;
+            font-weight: 400;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background: #000;
+            border: 3px solid #3b82f6;
+            padding: 25px;
+            transition: all 0.1s ease;
+            box-shadow: 5px 5px 0px #3b82f6;
+        }
+        
+        .skill-category:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0px #3b82f6;
+        }
+        
+        .skill-category h4 {
+            margin-bottom: 20px;
+            font-size: 0.65em;
+            color: #3b82f6;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+        
+        .skill-category ul { list-style: none; }
+        
+        .skill-category li {
+            padding: 8px 0;
+            color: #a1a1aa;
+            font-size: 0.55em;
+            font-weight: 400;
+        }
+        
+        .skill-category li::before {
+            content: '▸ ';
+            color: #3b82f6;
+            margin-right: 8px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 60px 40px;
+            color: #52525b;
+            margin-top: 80px;
+            border-top: 4px solid rgba(196, 255, 13, 0.2);
+            font-size: 0.5em;
+        }
+        
+        footer p {
+            margin: 8px 0;
+            line-height: 1.8;
+        }
+        
+        .floating-shape {
+            position: fixed;
+            background: repeating-linear-gradient(45deg, rgba(196, 255, 13, 0.03), rgba(196, 255, 13, 0.03) 10px, transparent 10px, transparent 20px);
+            pointer-events: none;
+            z-index: 0;
+            transition: background 0.5s ease;
+        }
+        
+        body.page-home .floating-shape { background: repeating-linear-gradient(45deg, rgba(59, 130, 246, 0.03), rgba(59, 130, 246, 0.03) 10px, transparent 10px, transparent 20px); }
+        body.page-projects .floating-shape { background: repeating-linear-gradient(45deg, rgba(167, 139, 250, 0.03), rgba(167, 139, 250, 0.03) 10px, transparent 10px, transparent 20px); }
+        body.page-art .floating-shape { background: repeating-linear-gradient(45deg, rgba(244, 114, 182, 0.03), rgba(244, 114, 182, 0.03) 10px, transparent 10px, transparent 20px); }
+        body.page-fitness .floating-shape { background: repeating-linear-gradient(45deg, rgba(52, 211, 153, 0.03), rgba(52, 211, 153, 0.03) 10px, transparent 10px, transparent 20px); }
+        body.page-leadership .floating-shape { background: repeating-linear-gradient(45deg, rgba(248, 113, 113, 0.03), rgba(248, 113, 113, 0.03) 10px, transparent 10px, transparent 20px); }
+        body.page-lifestyle .floating-shape { background: repeating-linear-gradient(45deg, rgba(251, 146, 60, 0.03), rgba(251, 146, 60, 0.03) 10px, transparent 10px, transparent 20px); }
+        
+        .shape-1 { width: 600px; height: 600px; top: -200px; right: -200px; }
+        .shape-2 { width: 400px; height: 400px; bottom: -100px; left: -100px; }
+        
+        .accent-line {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #c4ff0d;
+            z-index: 1001;
+            transition: background 0.3s ease;
+        }
+        
+        body.page-home .accent-line { background: #ffffff; }
+        body.page-projects .accent-line { background: #ffffff; }
+        body.page-art .accent-line { background: #ffffff; }
+        body.page-fitness .accent-line { background: #ffffff; }
+        body.page-leadership .accent-line { background: #ffffff; }
+        body.page-lifestyle .accent-line { background: #ffffff; }
+        
+        body.page-home .nav-buttons button.active { color: #3b82f6; border-color: #3b82f6; }
+        body.page-projects .nav-buttons button.active { color: #a78bfa; border-color: #a78bfa; }
+        body.page-art .nav-buttons button.active { color: #f472b6; border-color: #f472b6; }
+        body.page-fitness .nav-buttons button.active { color: #34d399; border-color: #34d399; }
+        body.page-leadership .nav-buttons button.active { color: #f87171; border-color: #f87171; }
+        body.page-lifestyle .nav-buttons button.active { color: #fb923c; border-color: #fb923c; }
+        
+        body.page-home h2::after { background: repeating-linear-gradient(90deg, #3b82f6 0px, #3b82f6 10px, transparent 10px, transparent 20px); }
+        body.page-projects h2::after { background: repeating-linear-gradient(90deg, #a78bfa 0px, #a78bfa 10px, transparent 10px, transparent 20px); }
+        body.page-art h2::after { background: repeating-linear-gradient(90deg, #f472b6 0px, #f472b6 10px, transparent 10px, transparent 20px); }
+        body.page-fitness h2::after { background: repeating-linear-gradient(90deg, #34d399 0px, #34d399 10px, transparent 10px, transparent 20px); }
+        body.page-leadership h2::after { background: repeating-linear-gradient(90deg, #f87171 0px, #f87171 10px, transparent 10px, transparent 20px); }
+        body.page-lifestyle h2::after { background: repeating-linear-gradient(90deg, #fb923c 0px, #fb923c 10px, transparent 10px, transparent 20px); }
+        
+        body.page-home .skill-category h4 { color: #3b82f6; }
+        body.page-projects .skill-category h4 { color: #a78bfa; }
+        body.page-art .skill-category h4 { color: #f472b6; }
+        body.page-fitness .skill-category h4 { color: #34d399; }
+        body.page-leadership .skill-category h4 { color: #f87171; }
+        body.page-lifestyle .skill-category h4 { color: #fb923c; }
+        
+        body.page-projects .experience-item, body.page-projects .project-item, body.page-projects .education-item, body.page-projects .interest-detail, body.page-projects .skill-category {
+            border-color: #a78bfa; box-shadow: 6px 6px 0px #a78bfa;
+        }
+        body.page-projects .experience-item:hover, body.page-projects .project-item:hover, body.page-projects .education-item:hover, body.page-projects .interest-detail:hover, body.page-projects .skill-category:hover {
+            box-shadow: 9px 9px 0px #a78bfa;
+        }
+        
+        body.page-art .experience-item, body.page-art .project-item, body.page-art .education-item, body.page-art .interest-detail, body.page-art .skill-category {
+            border-color: #f472b6; box-shadow: 6px 6px 0px #f472b6;
+        }
+        body.page-art .experience-item:hover, body.page-art .project-item:hover, body.page-art .education-item:hover, body.page-art .interest-detail:hover, body.page-art .skill-category:hover {
+            box-shadow: 9px 9px 0px #f472b6;
+        }
+        
+        body.page-fitness .experience-item, body.page-fitness .project-item, body.page-fitness .education-item, body.page-fitness .interest-detail, body.page-fitness .skill-category {
+            border-color: #34d399; box-shadow: 6px 6px 0px #34d399;
+        }
+        body.page-fitness .experience-item:hover, body.page-fitness .project-item:hover, body.page-fitness .education-item:hover, body.page-fitness .interest-detail:hover, body.page-fitness .skill-category:hover {
+            box-shadow: 9px 9px 0px #34d399;
+        }
+        
+        body.page-leadership .experience-item, body.page-leadership .project-item, body.page-leadership .education-item, body.page-leadership .interest-detail, body.page-leadership .skill-category {
+            border-color: #f87171; box-shadow: 6px 6px 0px #f87171;
+        }
+        body.page-leadership .experience-item:hover, body.page-leadership .project-item:hover, body.page-leadership .education-item:hover, body.page-leadership .interest-detail:hover, body.page-leadership .skill-category:hover {
+            box-shadow: 9px 9px 0px #f87171;
+        }
+        
+        body.page-lifestyle .experience-item, body.page-lifestyle .project-item, body.page-lifestyle .education-item, body.page-lifestyle .interest-detail, body.page-lifestyle .skill-category {
+            border-color: #fb923c; box-shadow: 6px 6px 0px #fb923c;
+        }
+        body.page-lifestyle .experience-item:hover, body.page-lifestyle .project-item:hover, body.page-lifestyle .education-item:hover, body.page-lifestyle .interest-detail:hover, body.page-lifestyle .skill-category:hover {
+            box-shadow: 9px 9px 0px #fb923c;
+        }
+        
+        body.page-projects h3 { color: #a78bfa; }
+        body.page-art h3 { color: #f472b6; }
+        body.page-fitness h3 { color: #34d399; }
+        body.page-leadership h3 { color: #f87171; }
+        body.page-lifestyle h3 { color: #fb923c; }
+        
+        /* Image Carousel Styles */
+        .carousel-container {
+            position: relative;
+            max-width: 800px;
+            margin: 30px auto;
+            border: 3px solid #f472b6;
+            background: #000;
+            box-shadow: 6px 6px 0px #f472b6;
+        }
+        
+        .carousel-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(244, 114, 182, 0.8);
+            color: #000;
+            border: 3px solid #000;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.5em;
+            padding: 20px 15px;
+            cursor: pointer;
+            transition: all 0.1s ease;
+            user-select: none;
+        }
+        
+        .carousel-btn:hover {
+            background: #f472b6;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-btn-left {
+            left: 10px;
+        }
+        
+        .carousel-btn-right {
+            right: 10px;
+        }
+        
+        .carousel-counter {
+            text-align: center;
+            padding: 15px;
+            background: #000;
+            color: #f472b6;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6em;
+            border-top: 3px solid #f472b6;
+        }
+        
+        /* Lifestyle Carousels */
+        .carousel-lifestyle-travel .carousel-container {
+            border-color: #fb923c;
+            box-shadow: 6px 6px 0px #fb923c;
+        }
+        
+        .carousel-lifestyle-travel .carousel-btn {
+            background: rgba(251, 146, 60, 0.8);
+        }
+        
+        .carousel-lifestyle-travel .carousel-btn:hover {
+            background: #fb923c;
+        }
+        
+        .carousel-lifestyle-travel .carousel-counter {
+            color: #fb923c;
+            border-top-color: #fb923c;
+        }
+        
+        .carousel-lifestyle-food .carousel-container {
+            border-color: #fb923c;
+            box-shadow: 6px 6px 0px #fb923c;
+        }
+        
+        .carousel-lifestyle-food .carousel-btn {
+            background: rgba(251, 146, 60, 0.8);
+        }
+        
+        .carousel-lifestyle-food .carousel-btn:hover {
+            background: #fb923c;
+        }
+        
+        .carousel-lifestyle-food .carousel-counter {
+            color: #fb923c;
+            border-top-color: #fb923c;
+        }
+        
+        .carousel-lifestyle-important .carousel-container {
+            border-color: #fb923c;
+            box-shadow: 6px 6px 0px #fb923c;
+        }
+        
+        .carousel-lifestyle-important .carousel-btn {
+            background: rgba(251, 146, 60, 0.8);
+        }
+        
+        .carousel-lifestyle-important .carousel-btn:hover {
+            background: #fb923c;
+        }
+        
+        .carousel-lifestyle-important .carousel-counter {
+            color: #fb923c;
+            border-top-color: #fb923c;
+        }
+        
+        @media (max-width: 768px) {
+            .container, .header-content { padding: 20px; }
+            h1 { font-size: 1.3em; }
+            h2 { font-size: 1em; }
+            .nav-buttons { flex-wrap: wrap; gap: 5px; }
+            .nav-buttons button { font-size: 0.4em; padding: 6px 10px; }
+            .contact-links { flex-direction: column; }
+            .contact-links a, .contact-links .email-contact { font-size: 0.4em; }
+            .experience-item, .project-item, .education-item, .interest-detail { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="accent-line"></div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo">KYLE AUYEUNG<span>.</span></div>
+            <div class="nav-buttons">
+                <button onclick="showPage('home')" class="active" id="btn-home">🏠 HOME</button>
+                <button onclick="showPage('projects')" id="btn-projects">💻 PROJECTS</button>
+                <button onclick="showPage('art')" id="btn-art">🎨 ART</button>
+                <button onclick="showPage('fitness')" id="btn-fitness">💪 FITNESS</button>
+                <button onclick="showPage('leadership')" id="btn-leadership">🤝 LEAD</button>
+                <button onclick="showPage('lifestyle')" id="btn-lifestyle">🌍 LIFE</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="main-content">
+            <!-- HOME PAGE -->
+            <div id="page-home" class="page active">
+                <div class="hero">
+                    <div class="hero-content">
+                        <div class="status-badge">▸ AVAILABLE FOR OPPORTUNITIES</div>
+                        <h1>CREATIVE<br>COMPUTER<br>ENGINEER</h1>
+                        <p class="tagline">Full-stack developer specializing in React, Python, and modern web technologies. Building innovative solutions that make a difference.</p>
+                        
+                        <!-- About Me Image -->
+                        <div style="text-align: center; margin-top: 30px;">
+                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/about_me.jpg" alt="Kyle Auyeung" style="max-width: 400px; width: 100%; border: 3px solid #3b82f6; box-shadow: 6px 6px 0px #3b82f6;">
+                        </div>
+                    </div>
+                </div>
+                
+                <section id="about">
+                    <h2>▸ ABOUT ME 👋</h2>
+                    <div class="interest-detail">
+                        <p>I'm a Computer Engineering graduate from the University of Massachusetts Amherst with a passion for developing innovative software solutions. I specialize in back-end and full-stack development with expertise in Python, React, and modern web technologies. I thrive on solving complex problems and developing technologies that make a difference.</p>
+                    </div>
+                    
+                    <!-- Graduation Image -->
+                    <div style="text-align: center; margin-top: 30px;">
+                        <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/graduation.jpg" alt="Graduation" style="max-width: 500px; width: 100%; border: 3px solid #3b82f6; box-shadow: 6px 6px 0px #3b82f6;">
+                    </div>
+                </section>
+                
+                <section id="education">
+                    <h2>▸ EDUCATION 🎓</h2>
+                    <div class="education-item">
+                        <h3>🏛️ UNIVERSITY OF MASSACHUSETTS AMHERST</h3>
+                        <p class="date">AUGUST 2021 - MAY 2025</p>
+                        <p><strong>Bachelor of Science, Computer Engineering</strong></p>
+                        <p style="margin-top: 10px;">Relevant coursework: Advanced Programming, Circuits and Electronics, Systems Programming, Computer Networking, Algorithms, Security Engineering, Network Security and Privacy, Communication Systems</p>
+                    </div>
+                </section>
+                
+                <section id="experience">
+                    <h2>▸ WORK EXPERIENCE 💼</h2>
+                    <div class="experience-item">
+                        <h3>💻 SOFTWARE DEVELOPER INTERN</h3>
+                        <p><strong>Klic AI</strong></p>
+                        <p class="date">OCTOBER 2025 - PRESENT</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Collaborate in weekly engineering meetings to align development priorities and project goals</li>
+                            <li>Develop efficient, maintainable code across multiple features while adhering to industry best practices</li>
+                            <li>Lead front-end development efforts using React, contributing to responsive UI components and improved user experience across core company projects</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section id="skills">
+                    <h2>▸ TECHNICAL SKILLS ⚡</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>💾 PROGRAMMING LANGUAGES</h4>
+                            <ul>
+                                <li>Python</li>
+                                <li>C++</li>
+                                <li>Java</li>
+                                <li>JavaScript</li>
+                                <li>SQL</li>
+                                <li>MATLAB</li>
+                                <li>Arduino</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>🌐 WEB DEVELOPMENT</h4>
+                            <ul>
+                                <li>React</li>
+                                <li>Angular</li>
+                                <li>Node.js</li>
+                                <li>Spring Boot</li>
+                                <li>HTML/HTTP</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>☁️ CLOUD & DEVOPS</h4>
+                            <ul>
+                                <li>Docker</li>
+                                <li>Kubernetes</li>
+                                <li>AWS</li>
+                                <li>CI/CD Pipelines</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>📊 DATA & ML</h4>
+                            <ul>
+                                <li>MongoDB</li>
+                                <li>PostgreSQL</li>
+                                <li>Machine Learning</li>
+                                <li>CNN</li>
+                                <li>TensorFlow</li>
+                                <li>Data Science</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>🔧 SYSTEMS & HARDWARE</h4>
+                            <ul>
+                                <li>TCP/IP, UDP</li>
+                                <li>x86, ARM Assembly</li>
+                                <li>PCB Design</li>
+                                <li>Embedded Systems</li>
+                                <li>Circuit Design</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="contact">
+                    <h2>▸ GET IN TOUCH 📧</h2>
+                    <div class="contact-links">
+                        <div class="email-contact primary-btn" onclick="copyEmail()">GET IN TOUCH</div>
+                        <a href="https://www.linkedin.com/in/kyle-auyeung/" target="_blank">LINKEDIN</a>
+                        <a href="https://github.com/kyauyeung" target="_blank">GITHUB</a>
+                        <div class="email-contact" onclick="copyEmailSimple()">EMAIL</div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- PROJECTS PAGE -->
+            <div id="page-projects" class="page">
+                <section>
+                    <h2>▸ FEATURED PROJECTS 🚀</h2>
+                    
+                    <div class="project-item">
+                        <h3>📄 RESUME TAILORING TOOL</h3>
+                        <p class="date">AUGUST 2025</p>
+                        <p>Automated resume optimization tool that analyzes and optimizes resumes against job descriptions using advanced Natural Language Processing techniques. Extracts key skills and requirements from job postings, compares them with resume content, and provides recommendations to improve candidate fit.</p>
+                        <p style="margin-top: 15px;"><strong>Technologies:</strong> Python, NLP, Machine Learning</p>
+                    </div>
+                    
+                    <div class="project-item">
+                        <h3>🔊 SOUND RECOGNITION SOFTWARE</h3>
+                        <p class="date">JUNE 2025</p>
+                        <p>Designed a sound recognition system using Python that detects specific sounds (baby cries and sirens). The system differentiates sounds based on frequency thresholds and displays detected sounds with accuracy ratings.</p>
+                        <p style="margin-top: 15px;"><strong>Technologies:</strong> Python, Audio Processing, Machine Learning</p>
+                    </div>
+                    
+                    <div class="project-item">
+                        <h3>📱 BLE DISPLAY APPLICATION</h3>
+                        <p class="date">MAY 2025</p>
+                        <p>Developed a mobile application that detects and connects to nearby Bluetooth devices and receives transmitted data. Initially developed in Swift UI, then migrated to React. Tested with a Pico board with established Bluetooth connection.</p>
+                        <p style="margin-top: 15px;"><strong>Technologies:</strong> React, Swift UI, Bluetooth Low Energy</p>
+                    </div>
+                    
+                    <div class="project-item">
+                        <h3>🔧 OTHER ENGINEERING PROJECTS</h3>
+                        <p class="date">ONGOING</p>
+                        <p>Coded various projects including password encoded libraries for data storage, digital valentines card, advanced mathematics calculator, animated firework display program, and a space invaders game. Also designed PCBs and implemented them into embedded systems.</p>
+                        <p style="margin-top: 15px;"><strong>Technologies:</strong> C++, Python, Hardware Design, PCB Design</p>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- ART PAGE -->
+            <div id="page-art" class="page">
+                <section>
+                    <h2>▸ ART 🎨</h2>
+                    <div class="interest-detail">
+                        <h3>🖌️ MY ARTISTIC JOURNEY</h3>
+                        <p>Art has been a lifelong passion of mine. I work across all mediums - from traditional painting and drawing to digital art. My work explores the intersection of technology and creativity, often incorporating themes from my engineering background.</p>
+                        <p style="margin-top: 15px;"><strong>Mediums I work with:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Oil and Acrylic Painting</li>
+                            <li>Watercolor</li>
+                            <li>Charcoal and Pencil Drawing</li>
+                            <li>Digital Art and Illustration</li>
+                            <li>Mixed Media</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>Gallery Exhibitions:</strong> My artwork has been displayed in multiple galleries, showcasing pieces that blend technical precision with artistic expression.</p>
+                    </div>
+                    
+                    <!-- Image Carousel - Separate Box -->
+                    <div class="interest-detail" style="margin-top: 30px;">
+                        <h3>🖼️ MY GALLERY</h3>
+                        <div class="carousel-container" style="margin-top: 20px;">
+                            <img id="carousel-image" class="carousel-image" src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/art_colosseum.jpg" alt="Artwork">
+                            <button class="carousel-btn carousel-btn-left" onclick="changeArtImage(-1)">◀</button>
+                            <button class="carousel-btn carousel-btn-right" onclick="changeArtImage(1)">▶</button>
+                            <div class="carousel-counter">
+                                <span id="carousel-counter">1 / 12</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- FITNESS PAGE -->
+            <div id="page-fitness" class="page">
+                <section>
+                    <h2>▸ FITNESS 💪</h2>
+                    
+                    <div class="interest-detail">
+                        <h3>🥊 BOXING</h3>
+                        <p class="date">6 YEARS OF TRAINING</p>
+                        <p>Boxing has been my primary discipline for the past six years. I train regularly, focusing on technique, conditioning, and mental toughness. The sport has taught me discipline, perseverance, and the importance of strategic thinking - skills that translate directly to problem-solving in engineering.</p>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/boxing.jpg" alt="Boxing Training" style="max-width: 500px; width: 100%; border: 3px solid #34d399; box-shadow: 6px 6px 0px #34d399;">
+                        </div>
+                    </div>
+                    
+                    <div class="interest-detail">
+                        <h3>💃 DANCE</h3>
+                        <p class="date">5 YEARS OF TRAINING</p>
+                        <p>Dancing provides a creative outlet that complements the intensity of boxing. It improves coordination, rhythm, and body awareness while being an enjoyable form of expression and cardio. I think it really says a lot about a person too, even if you can't dance you're never too cool to join a dance floor.</p>
+                    </div>
+                    
+                    <div class="interest-detail">
+                        <h3>🏂 SNOWBOARDING</h3>
+                        <p class="date">9 YEARS OF TRAINING</p>
+                        <p>Snowboarding is more of a seasonal hobby but I think that's what makes it so exciting. I get to look forward to these couple months throughout a year. The anticipation and simultaneous peace I get from riding up the ski lift is an indescribable feeling. Carving down mountains in the snow has given me comfort since I was 13, and is now something I can enjoy even now.</p>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/snowboard.jpg" alt="Snowboarding" style="max-width: 500px; width: 100%; border: 3px solid #34d399; box-shadow: 6px 6px 0px #34d399;">
+                        </div>
+                    </div>
+                    
+                    <div class="interest-detail">
+                        <h3>🏀 BASKETBALL</h3>
+                        <p>Basketball is my go-to team sport. I enjoy the strategic elements of the game and the teamwork required to succeed. Whether it's pickup games or organized leagues, basketball keeps me sharp both physically and mentally. I also occasionally watch a game with my friends, we like to keep up with the NBA.</p>
+                    </div>
+                    
+                    <div class="interest-detail">
+                        <h3>🏋️ GYM TRAINING</h3>
+                        <p class="date">6 YEARS OF TRAINING</p>
+                        <p>Regular gym sessions round out my fitness routine. I focus on strength training, functional movements, and maintaining overall physical health to support all my other athletic pursuits. It's also become another expressive outlet for me much like my other hobbies, I use the gym to relieve stress.</p>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/gym_training.jpg" alt="Gym Training" style="max-width: 500px; width: 100%; border: 3px solid #34d399; box-shadow: 6px 6px 0px #34d399;">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- LEADERSHIP PAGE -->
+            <div id="page-leadership" class="page">
+                <section>
+                    <h2>▸ LEADERSHIP 🤝</h2>
+                    <div class="interest-detail">
+                        <h3>🏛️ LAMBDA PHI EPSILON FRATERNITY</h3>
+                        <p>As a member of Lambda Phi Epsilon, I've held multiple leadership positions that have honed my organizational and interpersonal skills.</p>
+                        <p style="margin-top: 15px;"><strong>Leadership Responsibilities:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>📅 Event Organization:</strong> Planned and executed major fraternity events, managing logistics, budgets, and teams to ensure successful outcomes</li>
+                            <li><strong>👥 Member Mentorship:</strong> Monitored and supported fellow members' academic and personal development, fostering a culture of excellence and brotherhood</li>
+                            <li><strong>📱 Social Media Management:</strong> Controlled all social media presence, creating engaging content and managing the fraternity's digital brand across multiple platforms</li>
+                            <li><strong>🎯 Recruitment:</strong> Led recruitment efforts to identify and bring in new members who align with our values and contribute to our community</li>
+                        </ul>
+                        <p style="margin-top: 15px;">These experiences have developed my ability to lead diverse teams, communicate effectively, and balance multiple responsibilities - skills that are invaluable in both professional and personal contexts.</p>
+                    </div>
+                    
+                    <div class="interest-detail">
+                        <h3>🌟 COMMUNITY SERVICE</h3>
+                        <p>Throughout my life, I've been deeply committed to giving back to my community through various volunteer initiatives. These experiences have shaped my character and reinforced my belief in the importance of service, compassion, and making a positive impact in the lives of others.</p>
+                        
+                        <p style="margin-top: 15px;"><strong>Pell Street Mentorship Program - Tutor/Senior Counselor</strong></p>
+                        <p class="date">JUNE 2018 - 2020 | 21 PELL STREET</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Began as a volunteer, became counselor, then promoted to senior counselor after 3 years</li>
+                            <li>Led younger children and engaged with the community and worked as a remote tutor in the program</li>
+                            <li>Dedicated 40 hours of volunteer work per week, 9 weeks per year, for 3 years</li>
+                        </ul>
+                        
+                        <p style="margin-top: 20px;"><strong>New York Race Track Chaplaincy</strong></p>
+                        <p class="date">2019 - 2021</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Organized food drives, participated in charity events and worked in groups towards a better cause</li>
+                            <li>Contributed 4.5 hours per week, 3 weeks per year, for 3 years</li>
+                        </ul>
+                        
+                        <p style="margin-top: 20px;"><strong>Brookfield Farms</strong></p>
+                        <p class="date">2023 - 2025 | AMHERST, MA</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Harvested tomatoes and potatoes to support local food production</li>
+                            <li>Plowed and prepared soil using rakes and shovels for seasonal planting</li>
+                            <li>Contributed to sustainable farming practices and local agricultural community initiatives</li>
+                        </ul>
+                        
+                        <p style="margin-top: 20px;"><strong>Project Linus</strong></p>
+                        <p class="date">2023 - 2025 | AMHERST, MA</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Created handmade blankets to provide comfort and security to children in need</li>
+                            <li>Participated in community blanket-making events and donation drives</li>
+                            <li>Contributed to bringing warmth and care to seriously ill, traumatized, or otherwise in-need children</li>
+                        </ul>
+                        
+                        <p style="margin-top: 20px;">These volunteer experiences have taught me the value of hard work, empathy, and dedication to causes greater than myself. Whether mentoring youth, supporting agricultural sustainability, or bringing comfort to children in need, each role has enriched my understanding of community responsibility and strengthened my commitment to making a meaningful difference wherever I can.</p>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- LIFESTYLE PAGE -->
+            <div id="page-lifestyle" class="page">
+                <section>
+                    <h2>▸ LIFESTYLE 🌍</h2>
+                    <div class="interest-detail">
+                        <h3>✈️ TRAVEL & EXPLORATION</h3>
+                        <p>When I'm not working on my art or physical health, I love to explore the world. Travel has always been a passion of mine, and I've been fortunate enough to visit some incredible places that have shaped my perspective and inspired my creativity.</p>
+                        <p style="margin-top: 15px;"><strong>Places I've Explored:</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>🇯🇵 Japan:</strong> Immersed myself in the unique blend of traditional culture and cutting-edge technology</li>
+                            <li><strong>🇮🇹 Italy:</strong> Experienced the rich history, art, and cuisine that inspired Renaissance masters</li>
+                            <li><strong>🇨🇳 China:</strong> Explored the contrast between ancient traditions and modern innovation</li>
+                            <li>And many more destinations that continue to broaden my horizons</li>
+                        </ul>
+                        <p style="margin-top: 15px;">Each place I visit teaches me something new about the world and myself, fueling both my personal growth and creative expression.</p>
+                        
+                        <!-- Travel Carousel -->
+                        <div class="carousel-lifestyle-travel" style="margin-top: 30px;">
+                            <div class="carousel-container">
+                                <img id="carousel-travel-image" class="carousel-image" src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/travel.jpg" alt="Travel Photo">
+                                <button class="carousel-btn carousel-btn-left" onclick="changeTravelImage(-1)">◀</button>
+                                <button class="carousel-btn carousel-btn-right" onclick="changeTravelImage(1)">▶</button>
+                                <div class="carousel-counter">
+                                    <span id="carousel-travel-counter">1 / 5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="interest-detail">
+                        <h3>🍜 FOOD & CULINARY ADVENTURES</h3>
+                        <p>I'm passionate about food and love discovering new restaurants and cuisines. For me, eating out isn't just about the meal—it's about the experience, the atmosphere, and the stories behind each dish. Whether it's a hidden gem in the city or a Michelin-starred restaurant, I'm always excited to try something new and expand my palate.</p>
+                        <p style="margin-top: 15px;">From street food markets to fine dining, I believe that food is one of the best ways to connect with different cultures and communities. Every meal is an opportunity to learn and appreciate the artistry that goes into creating something delicious.</p>
+                        
+                        <!-- Food Carousel -->
+                        <div class="carousel-lifestyle-food" style="margin-top: 30px;">
+                            <div class="carousel-container">
+                                <img id="carousel-food-image" class="carousel-image" src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food.jpg" alt="Food Photo">
+                                <button class="carousel-btn carousel-btn-left" onclick="changeFoodImage(-1)">◀</button>
+                                <button class="carousel-btn carousel-btn-right" onclick="changeFoodImage(1)">▶</button>
+                                <div class="carousel-counter">
+                                    <span id="carousel-food-counter">1 / 5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="interest-detail">
+                        <h3>❤️ WHAT'S IMPORTANT</h3>
+                        <p>Above all else, I prioritize making time for the people who matter most to me. Whether it's catching up with close friends over dinner, spending quality time with family, or building meaningful connections with new people, relationships are at the core of who I am.</p>
+                        <p style="margin-top: 15px;">I believe that life's best moments are shared with others. No matter how busy I get with work, projects, or personal pursuits, I always make sure to carve out time for the people I care about. These connections keep me grounded, inspired, and remind me what truly matters.</p>
+                        
+                        <!-- Important People Carousel -->
+                        <div class="carousel-lifestyle-important" style="margin-top: 30px;">
+                            <div class="carousel-container">
+                                <img id="carousel-important-image" class="carousel-image" src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/family.jpg" alt="Family and Friends">
+                                <button class="carousel-btn carousel-btn-left" onclick="changeImportantImage(-1)">◀</button>
+                                <button class="carousel-btn carousel-btn-right" onclick="changeImportantImage(1)">▶</button>
+                                <div class="carousel-counter">
+                                    <span id="carousel-important-counter">1 / 3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2026 KYLE AUYEUNG</p>
+            <p>NEW YORK, NY</p>
+            <p>LET'S BUILD SOMETHING AMAZING!</p>
+        </footer>
+    </div>
+
+    <script>
+        function showPage(pageName) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            const buttons = document.querySelectorAll('.nav-buttons button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById('page-' + pageName).classList.add('active');
+            document.getElementById('btn-' + pageName).classList.add('active');
+            
+            document.body.className = 'page-' + pageName;
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        document.body.className = 'page-home';
+        
+        // Art image carousel
+        const artImages = [
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/art_colosseum.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/art_ocean.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4024.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4025.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4028.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4030.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4032.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4038.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4039.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4052.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4053.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_1160.jpg'
+        ];
+        
+        let currentArtIndex = 0;
+        
+        function changeArtImage(direction) {
+            currentArtIndex += direction;
+            
+            // Loop around
+            if (currentArtIndex < 0) {
+                currentArtIndex = artImages.length - 1;
+            } else if (currentArtIndex >= artImages.length) {
+                currentArtIndex = 0;
+            }
+            
+            // Update image and counter
+            document.getElementById('carousel-image').src = artImages[currentArtIndex];
+            document.getElementById('carousel-counter').textContent = `${currentArtIndex + 1} / ${artImages.length}`;
+        }
+        
+        // Travel carousel - 5 images (travel first, then japan, korea, china, italy)
+        const travelImages = [
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/travel.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/japan.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/korea.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/china.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/italy.jpg'
+        ];
+        
+        let currentTravelIndex = 0;
+        
+        function changeTravelImage(direction) {
+            currentTravelIndex += direction;
+            if (currentTravelIndex < 0) {
+                currentTravelIndex = travelImages.length - 1;
+            } else if (currentTravelIndex >= travelImages.length) {
+                currentTravelIndex = 0;
+            }
+            document.getElementById('carousel-travel-image').src = travelImages[currentTravelIndex];
+            document.getElementById('carousel-travel-counter').textContent = `${currentTravelIndex + 1} / ${travelImages.length}`;
+        }
+        
+        // Food carousel - 5 images (food, food1, food2, food3, culinary)
+        const foodImages = [
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food1.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food2.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food3.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/culinary.jpg'
+        ];
+        
+        let currentFoodIndex = 0;
+        
+        function changeFoodImage(direction) {
+            currentFoodIndex += direction;
+            if (currentFoodIndex < 0) {
+                currentFoodIndex = foodImages.length - 1;
+            } else if (currentFoodIndex >= foodImages.length) {
+                currentFoodIndex = 0;
+            }
+            document.getElementById('carousel-food-image').src = foodImages[currentFoodIndex];
+            document.getElementById('carousel-food-counter').textContent = `${currentFoodIndex + 1} / ${foodImages.length}`;
+        }
+        
+        // Important people carousel - 3 images (family, friends, friends2)
+        const importantImages = [
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/family.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/friends.jpg',
+            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/friends2.jpg'
+        ];
+        
+        let currentImportantIndex = 0;
+        
+        function changeImportantImage(direction) {
+            currentImportantIndex += direction;
+            if (currentImportantIndex < 0) {
+                currentImportantIndex = importantImages.length - 1;
+            } else if (currentImportantIndex >= importantImages.length) {
+                currentImportantIndex = 0;
+            }
+            document.getElementById('carousel-important-image').src = importantImages[currentImportantIndex];
+            document.getElementById('carousel-important-counter').textContent = `${currentImportantIndex + 1} / ${importantImages.length}`;
+        }
+        
+        function copyEmail() {
+            const email = 'auyeungikyle@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                alert('EMAIL COPIED: ' + email);
+            }).catch(err => {
+                alert('EMAIL: ' + email);
+            });
+        }
+        
+        function copyEmailSimple() {
+            const email = 'auyeungikyle@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                alert('EMAIL COPIED TO CLIPBOARD!\n\n' + email);
+            }).catch(err => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = email;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    alert('EMAIL COPIED TO CLIPBOARD!\n\n' + email);
+                } catch (err) {
+                    alert('EMAIL:\n\n' + email);
+                }
+                document.body.removeChild(textArea);
+            });
+        }
+    </script>
+</body>
+</html>
