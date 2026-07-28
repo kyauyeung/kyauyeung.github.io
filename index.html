@@ -26,7 +26,7 @@
         }
         
         body.page-home { background: linear-gradient(180deg, #0a0a0a 0%, #0a1020 45%, #120a1f 100%); }
-        body.page-projects { background: linear-gradient(180deg, #0a0a14 0%, #120a1f 45%, #1a0f24 100%); }
+        body.page-experience { background: linear-gradient(180deg, #0a0a14 0%, #120a1f 45%, #1a0f24 100%); }
         body.page-art { background: linear-gradient(180deg, #140a0f 0%, #1f0a17 45%, #1a0a12 100%); }
         body.page-fitness { background: linear-gradient(180deg, #0a140f 0%, #0a1f16 45%, #0a1a13 100%); }
         body.page-leadership { background: linear-gradient(180deg, #140f0a 0%, #1f150a 45%, #1a120a 100%); }
@@ -62,7 +62,7 @@
         }
         
         body.page-home header { border-bottom-color: #3b82f6; }
-        body.page-projects header { border-bottom-color: #a78bfa; }
+        body.page-experience header { border-bottom-color: #a78bfa; }
         body.page-art header { border-bottom-color: #f472b6; }
         body.page-fitness header { border-bottom-color: #34d399; }
         body.page-leadership header { border-bottom-color: #f87171; }
@@ -94,7 +94,7 @@
             color: #ffffff;
         }
         
-        body.page-projects .logo span {
+        body.page-experience .logo span {
             color: #a78bfa;
         }
         
@@ -115,7 +115,7 @@
         }
         
         body.page-home .logo span { color: #c4ff0d; }
-        body.page-projects .logo span { color: #a78bfa; }
+        body.page-experience .logo span { color: #a78bfa; }
         body.page-art .logo span { color: #f472b6; }
         body.page-fitness .logo span { color: #34d399; }
         body.page-leadership .logo span { color: #f87171; }
@@ -215,12 +215,12 @@
             background: #3b82f6;
         }
         
-        body.page-projects .nav-buttons button.active {
+        body.page-experience .nav-buttons button.active {
             color: #a78bfa;
             border-color: #a78bfa;
         }
         
-        body.page-projects .nav-buttons button.active::after {
+        body.page-experience .nav-buttons button.active::after {
             background: #a78bfa;
         }
         
@@ -484,7 +484,7 @@
             box-shadow: 3px 3px 0px #3b82f6;
         }
 
-        body.page-projects .date { border-color: #a78bfa; color: #a78bfa; box-shadow: 3px 3px 0px #a78bfa; }
+        body.page-experience .date { border-color: #a78bfa; color: #a78bfa; box-shadow: 3px 3px 0px #a78bfa; }
         body.page-art .date { border-color: #f472b6; color: #f472b6; box-shadow: 3px 3px 0px #f472b6; }
         body.page-fitness .date { border-color: #34d399; color: #34d399; box-shadow: 3px 3px 0px #34d399; }
         body.page-leadership .date { border-color: #f87171; color: #f87171; box-shadow: 3px 3px 0px #f87171; }
@@ -501,6 +501,7 @@
         .banner-item {
             flex: 1 1 220px;
             max-width: 260px;
+            aspect-ratio: 3 / 4;
             background: #000;
             border: 3px solid #3b82f6;
             box-shadow: 6px 6px 0px #3b82f6;
@@ -510,7 +511,9 @@
 
         .banner-item img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
             display: block;
         }
 
@@ -659,36 +662,36 @@
         }
         
         body.page-home .accent-line { background: #ffffff; }
-        body.page-projects .accent-line { background: #ffffff; }
+        body.page-experience .accent-line { background: #ffffff; }
         body.page-art .accent-line { background: #ffffff; }
         body.page-fitness .accent-line { background: #ffffff; }
         body.page-leadership .accent-line { background: #ffffff; }
         body.page-lifestyle .accent-line { background: #ffffff; }
         
         body.page-home .nav-buttons button.active { color: #3b82f6; border-color: #3b82f6; }
-        body.page-projects .nav-buttons button.active { color: #a78bfa; border-color: #a78bfa; }
+        body.page-experience .nav-buttons button.active { color: #a78bfa; border-color: #a78bfa; }
         body.page-art .nav-buttons button.active { color: #f472b6; border-color: #f472b6; }
         body.page-fitness .nav-buttons button.active { color: #34d399; border-color: #34d399; }
         body.page-leadership .nav-buttons button.active { color: #f87171; border-color: #f87171; }
         body.page-lifestyle .nav-buttons button.active { color: #fb923c; border-color: #fb923c; }
         
         body.page-home h2::after { background: repeating-linear-gradient(90deg, #3b82f6 0px, #3b82f6 10px, transparent 10px, transparent 20px); }
-        body.page-projects h2::after { background: repeating-linear-gradient(90deg, #a78bfa 0px, #a78bfa 10px, transparent 10px, transparent 20px); }
+        body.page-experience h2::after { background: repeating-linear-gradient(90deg, #a78bfa 0px, #a78bfa 10px, transparent 10px, transparent 20px); }
         body.page-art h2::after { background: repeating-linear-gradient(90deg, #f472b6 0px, #f472b6 10px, transparent 10px, transparent 20px); }
         body.page-fitness h2::after { background: repeating-linear-gradient(90deg, #34d399 0px, #34d399 10px, transparent 10px, transparent 20px); }
         body.page-leadership h2::after { background: repeating-linear-gradient(90deg, #f87171 0px, #f87171 10px, transparent 10px, transparent 20px); }
         body.page-lifestyle h2::after { background: repeating-linear-gradient(90deg, #fb923c 0px, #fb923c 10px, transparent 10px, transparent 20px); }
         
-        body.page-projects .skill-category h4 { color: #a78bfa; }
+        body.page-experience .skill-category h4 { color: #a78bfa; }
         body.page-art .skill-category h4 { color: #f472b6; }
         body.page-fitness .skill-category h4 { color: #34d399; }
         body.page-leadership .skill-category h4 { color: #f87171; }
         body.page-lifestyle .skill-category h4 { color: #fb923c; }
         
-        body.page-projects .experience-item, body.page-projects .project-item, body.page-projects .education-item, body.page-projects .interest-detail, body.page-projects .skill-category {
+        body.page-experience .experience-item, body.page-experience .project-item, body.page-experience .education-item, body.page-experience .interest-detail, body.page-experience .skill-category {
             border-color: #a78bfa; box-shadow: 6px 6px 0px #a78bfa;
         }
-        body.page-projects .experience-item:hover, body.page-projects .project-item:hover, body.page-projects .education-item:hover, body.page-projects .interest-detail:hover, body.page-projects .skill-category:hover {
+        body.page-experience .experience-item:hover, body.page-experience .project-item:hover, body.page-experience .education-item:hover, body.page-experience .interest-detail:hover, body.page-experience .skill-category:hover {
             box-shadow: 9px 9px 0px #a78bfa;
         }
         
@@ -720,7 +723,7 @@
             box-shadow: 9px 9px 0px #fb923c;
         }
         
-        body.page-projects h3 { color: #a78bfa; }
+        body.page-experience h3 { color: #a78bfa; }
         body.page-art h3 { color: #f472b6; }
         body.page-fitness h3 { color: #34d399; }
         body.page-leadership h3 { color: #f87171; }
@@ -836,7 +839,104 @@
             border-top: none;
         }
 
+        /* Interactive Art Gallery */
+        .art-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .art-tile {
+            position: relative;
+            aspect-ratio: 1;
+            background: #000;
+            border: 3px solid #f472b6;
+            box-shadow: 5px 5px 0px #f472b6;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .art-tile:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0px #f472b6;
+        }
+
+        .art-tile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .art-tile:hover img {
+            transform: scale(1.08);
+        }
+
+        .art-tile-label {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 10px 10px;
+            background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 100%);
+            color: #fff;
+            font-size: 0.4em;
+            letter-spacing: 0.05em;
+            opacity: 0;
+            transition: opacity 0.15s ease;
+        }
+
+        .art-tile:hover .art-tile-label {
+            opacity: 1;
+        }
+
+        .art-lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .art-lightbox.active {
+            display: flex;
+        }
+
+        .art-lightbox-inner {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .art-lightbox-frame {
+            position: relative;
+        }
+
+        .art-lightbox-close {
+            position: absolute;
+            top: -18px;
+            right: -18px;
+            width: 40px;
+            height: 40px;
+            background: #f472b6;
+            color: #000;
+            border: 3px solid #000;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7em;
+            cursor: pointer;
+            z-index: 2;
+        }
+
         @media (max-width: 768px) {
+            .art-gallery-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
+            .art-lightbox-close { top: -14px; right: 0; }
             .gallery-slide img { max-height: 320px; }
             .container, .header-content { padding: 20px; }
             h1 { font-size: 1.3em; }
@@ -862,7 +962,7 @@
             <div class="logo">KYLE AUYEUNG<span>.</span></div>
             <div class="nav-buttons">
                 <button onclick="showPage('home')" class="active" id="btn-home">🏠 HOME</button>
-                <button onclick="showPage('projects')" id="btn-projects">💻 PROJECTS</button>
+                <button onclick="showPage('experience')" id="btn-experience">💼 EXPERIENCE</button>
                 <button onclick="showPage('art')" id="btn-art">🎨 ART</button>
                 <button onclick="showPage('fitness')" id="btn-fitness">💪 FITNESS</button>
                 <button onclick="showPage('leadership')" id="btn-leadership">🤝 LEAD</button>
@@ -884,7 +984,7 @@
 
                         <div class="hero-cta-row">
                             <button class="hero-btn hero-btn-primary" onclick="copyEmail()">GET IN TOUCH</button>
-                            <button class="hero-btn hero-btn-outline" onclick="showPage('projects')">VIEW PROJECTS</button>
+                            <button class="hero-btn hero-btn-outline" onclick="showPage('experience')">VIEW EXPERIENCE</button>
                         </div>
 
                         <!-- Banners -->
@@ -905,7 +1005,23 @@
                 <section id="about">
                     <h2>▸ ABOUT ME 👋</h2>
                     <div class="interest-detail">
+                        <h3>💼 THE PROFESSIONAL</h3>
                         <p>I'm a Computer Engineering graduate from the University of Massachusetts Amherst with a passion for developing innovative software solutions. I specialize in back-end and full-stack development with expertise in Python, React, and modern web technologies. I thrive on solving complex problems and developing technologies that make a difference.</p>
+                    </div>
+
+                    <div class="interest-detail">
+                        <h3>🎧 THE PERSONAL</h3>
+                        <p>I'm a HUGE Marvel nerd and can quote a line from every movie, some movies I can probably do the entire script. I live and breathe music, and never leave the house without headphones. I love the outdoors and going on random adventures.</p>
+
+                        <!-- Personal Banners -->
+                        <div class="banner-row">
+                            <div class="banner-item">
+                                <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/concert.jpg" alt="At a concert">
+                            </div>
+                            <div class="banner-item">
+                                <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/tree_hike.jpg" alt="On a hike, reaching a tree overlook">
+                            </div>
+                        </div>
                     </div>
                 </section>
                 
@@ -916,34 +1032,6 @@
                         <p class="date">AUGUST 2021 - MAY 2025</p>
                         <p><strong>Bachelor of Science, Computer Engineering</strong></p>
                         <p style="margin-top: 10px;">Relevant coursework: Advanced Programming, Circuits and Electronics, Systems Programming, Computer Networking, Algorithms, Security Engineering, Network Security and Privacy, Communication Systems</p>
-                    </div>
-                </section>
-                
-                <section id="experience">
-                    <h2>▸ WORK EXPERIENCE 💼</h2>
-                    <div class="experience-item">
-                        <h3>💻 SOFTWARE DEVELOPER INTERN</h3>
-                        <p><strong>Jukebox.AM</strong></p>
-                        <p class="date">JULY 2026 - PRESENT</p>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
-                            <li>Built reusable React Native components and REST API integrations, reducing duplicate code across the app's core features by roughly 15%</li>
-                            <li>Automated development workflows using Claude and internal tooling, adding 80+ automated tests and cutting manual code review time by around 25%</li>
-                            <li>Contributed to front-end development, using React Native, building responsive UI components used across core app screens</li>
-                            <li>Built a multi-step rating flow in React Native spanning 3 screens (tier selection, comparison-based placement, and detail capture) unified under one custom hook, reducing rating completion time by about 10%</li>
-                            <li>Refactored a core scoring service and its REST API in TypeScript/Express, collapsing a repeated per-item database query into a single batched query, cutting database calls per request by roughly 80%</li>
-                        </ul>
-                    </div>
-                    <div class="experience-item">
-                        <h3>💻 FRONT-END DEVELOPER INTERN</h3>
-                        <p><strong>Klic AI</strong></p>
-                        <p class="date">OCTOBER 2025 - JANUARY 2026</p>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
-                            <li>Built reusable React components and REST API integrations, improving frontend maintainability and reducing duplicate code across projects</li>
-                            <li>Automated development workflows using Claude and internal tooling, reducing build times by 10%</li>
-                            <li>Contributed to front-end development, using React, building responsive UI components used across core company projects</li>
-                            <li>Built a user preference filtering system in React Native with 5 configurable parameters (age, distance, gender, relationship type, and location), reducing manual profile filtering time by 20% by passing structured preference data directly to the MongoDB matching pipeline</li>
-                            <li>Developed 3 reusable React Native screen components (SearchScreen, SignInScreen, ProfileScreen) with consistent styling and state management, streamlining the team's frontend development workflow</li>
-                        </ul>
                     </div>
                 </section>
                 
@@ -1027,11 +1115,39 @@
                 </section>
             </div>
             
-            <!-- PROJECTS PAGE -->
-            <div id="page-projects" class="page">
+            <!-- EXPERIENCE PAGE -->
+            <div id="page-experience" class="page">
+                <section id="experience">
+                    <h2>▸ WORK EXPERIENCE 💼</h2>
+                    <div class="experience-item">
+                        <h3>💻 SOFTWARE DEVELOPER INTERN</h3>
+                        <p><strong>Jukebox.AM</strong></p>
+                        <p class="date">JULY 2026 - PRESENT</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Built reusable React Native components and REST API integrations, reducing duplicate code across the app's core features by roughly 15%</li>
+                            <li>Automated development workflows using Claude and internal tooling, adding 80+ automated tests and cutting manual code review time by around 25%</li>
+                            <li>Contributed to front-end development, using React Native, building responsive UI components used across core app screens</li>
+                            <li>Built a multi-step rating flow in React Native spanning 3 screens (tier selection, comparison-based placement, and detail capture) unified under one custom hook, reducing rating completion time by about 10%</li>
+                            <li>Refactored a core scoring service and its REST API in TypeScript/Express, collapsing a repeated per-item database query into a single batched query, cutting database calls per request by roughly 80%</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>💻 FRONT-END DEVELOPER INTERN</h3>
+                        <p><strong>Klic AI</strong></p>
+                        <p class="date">OCTOBER 2025 - JANUARY 2026</p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Built reusable React components and REST API integrations, improving frontend maintainability and reducing duplicate code across projects</li>
+                            <li>Automated development workflows using Claude and internal tooling, reducing build times by 10%</li>
+                            <li>Contributed to front-end development, using React, building responsive UI components used across core company projects</li>
+                            <li>Built a user preference filtering system in React Native with 5 configurable parameters (age, distance, gender, relationship type, and location), reducing manual profile filtering time by 20% by passing structured preference data directly to the MongoDB matching pipeline</li>
+                            <li>Developed 3 reusable React Native screen components (SearchScreen, SignInScreen, ProfileScreen) with consistent styling and state management, streamlining the team's frontend development workflow</li>
+                        </ul>
+                    </div>
+                </section>
+
                 <section>
                     <h2>▸ FEATURED PROJECTS 🚀</h2>
-                    
+
                     <div class="project-item">
                         <h3>📄 RESUME TAILORING TOOL</h3>
                         <p class="date">AUGUST 2025</p>
@@ -1053,15 +1169,9 @@
                         <p style="margin-top: 15px;"><strong>Technologies:</strong> React, SwiftUI, Bluetooth Low Energy (BLE)</p>
                     </div>
                     
-                    <div class="project-item">
-                        <h3>🔧 OTHER ENGINEERING PROJECTS</h3>
-                        <p class="date">ONGOING</p>
-                        <p>Coded various projects including password encoded libraries for data storage, digital valentines card, advanced mathematics calculator, animated firework display program, and a space invaders game. Also designed PCBs and implemented them into embedded systems.</p>
-                        <p style="margin-top: 15px;"><strong>Technologies:</strong> C++, Python, Hardware Design, PCB Design</p>
-                    </div>
                 </section>
             </div>
-            
+
             <!-- ART PAGE -->
             <div id="page-art" class="page">
                 <section>
@@ -1080,34 +1190,77 @@
                         <p style="margin-top: 15px;"><strong>Gallery Exhibitions:</strong> My artwork has been displayed in multiple galleries, showcasing pieces that blend technical precision with artistic expression.</p>
                     </div>
                     
-                    <!-- Image Carousel -->
-                    <div class="gallery-carousel" style="--carousel-accent: #f472b6; margin-top: 30px;">
-                        <div class="gallery-title" id="art-gallery-title">COLOSSEUM SKETCH</div>
-                        <div class="gallery-viewport">
-                            <div class="gallery-track" id="art-gallery-track">
-                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/art_colosseum.jpg" alt="Colosseum sketch"></div>
-                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/art_ocean.jpg" alt="Ocean study"></div>
-                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4024.jpg" alt="Portrait study"></div>
-                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4025.jpg" alt="Winter path"></div>
-                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4028.jpg" alt="Rose in the wind"></div>
-                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4030.jpg" alt="Character concept art"></div>
-                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4032.jpg" alt="Waterfront promenade"></div>
-                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4038.jpg" alt="Portrait in shades"></div>
-                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4039.jpg" alt="Ink mountains"></div>
-                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4052.jpg" alt="Mending the monarch"></div>
-                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4053.jpg" alt="Blindfolded"></div>
-                            </div>
-                            <button class="carousel-btn carousel-btn-left" onclick="artGalleryChange(-1)">◀</button>
-                            <button class="carousel-btn carousel-btn-right" onclick="artGalleryChange(1)">▶</button>
+                    <!-- Interactive Art Gallery -->
+                    <div class="art-gallery-grid" id="art-gallery-grid">
+                        <div class="art-tile" onclick="openArtLightbox(0)">
+                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/art_colosseum.jpg" alt="Colosseum sketch">
+                            <div class="art-tile-label">COLOSSEUM SKETCH</div>
                         </div>
-                        <div class="gallery-caption">
-                            <p class="gallery-text" id="art-gallery-text">Pen and ink sketch drawn on location at the Colosseum in Rome, Italy.</p>
+                        <div class="art-tile" onclick="openArtLightbox(1)">
+                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/art_ocean.jpg" alt="Ocean study">
+                            <div class="art-tile-label">OCEAN STUDY</div>
                         </div>
-                        <div class="carousel-counter">
-                            <span id="art-gallery-counter">1 / 11</span>
+                        <div class="art-tile" onclick="openArtLightbox(2)">
+                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4024.jpg" alt="Portrait study">
+                            <div class="art-tile-label">PORTRAIT STUDY</div>
+                        </div>
+                        <div class="art-tile" onclick="openArtLightbox(3)">
+                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4025.jpg" alt="Winter path">
+                            <div class="art-tile-label">WINTER PATH</div>
+                        </div>
+                        <div class="art-tile" onclick="openArtLightbox(4)">
+                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4028.jpg" alt="Rose in the wind">
+                            <div class="art-tile-label">ROSE IN THE WIND</div>
+                        </div>
+                        <div class="art-tile" onclick="openArtLightbox(5)">
+                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4030.jpg" alt="Character concept art">
+                            <div class="art-tile-label">CHARACTER CONCEPT ART</div>
+                        </div>
+                        <div class="art-tile" onclick="openArtLightbox(6)">
+                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4032.jpg" alt="Waterfront promenade">
+                            <div class="art-tile-label">WATERFRONT PROMENADE</div>
+                        </div>
+                        <div class="art-tile" onclick="openArtLightbox(7)">
+                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4038.jpg" alt="Portrait in shades">
+                            <div class="art-tile-label">PORTRAIT IN SHADES</div>
+                        </div>
+                        <div class="art-tile" onclick="openArtLightbox(8)">
+                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4039.jpg" alt="Ink mountains">
+                            <div class="art-tile-label">INK MOUNTAINS</div>
+                        </div>
+                        <div class="art-tile" onclick="openArtLightbox(9)">
+                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4052.jpg" alt="Mending the monarch">
+                            <div class="art-tile-label">MENDING THE MONARCH</div>
+                        </div>
+                        <div class="art-tile" onclick="openArtLightbox(10)">
+                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4053.jpg" alt="Blindfolded">
+                            <div class="art-tile-label">BLINDFOLDED</div>
+                        </div>
+                        <div class="art-tile" onclick="openArtLightbox(11)">
+                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/sketch_camera.jpg" alt="Camera sketch">
+                            <div class="art-tile-label">CAMERA SKETCH</div>
                         </div>
                     </div>
                 </section>
+            </div>
+
+            <!-- Art Lightbox -->
+            <div class="art-lightbox" id="art-lightbox" onclick="if(event.target===this) closeArtLightbox()">
+                <div class="art-lightbox-inner" style="--carousel-accent: #f472b6;">
+                    <button class="art-lightbox-close" onclick="closeArtLightbox()">✕</button>
+                    <div class="gallery-title" id="art-lightbox-title">TITLE</div>
+                    <div class="gallery-viewport art-lightbox-frame">
+                        <img id="art-lightbox-img" src="" alt="" style="max-width:100%; max-height:65vh; width:auto; height:auto; object-fit:contain; display:block; margin:0 auto;">
+                        <button class="carousel-btn carousel-btn-left" onclick="artLightboxNav(-1)">◀</button>
+                        <button class="carousel-btn carousel-btn-right" onclick="artLightboxNav(1)">▶</button>
+                    </div>
+                    <div class="gallery-caption">
+                        <p class="gallery-text" id="art-lightbox-text"></p>
+                    </div>
+                    <div class="carousel-counter">
+                        <span id="art-lightbox-counter"></span>
+                    </div>
+                </div>
             </div>
 
             <!-- FITNESS PAGE -->
@@ -1216,7 +1369,9 @@
                         <ul style="margin-left: 20px; margin-top: 10px;">
                             <li><strong>🇯🇵 Japan:</strong> Immersed myself in the unique blend of traditional culture and cutting-edge technology</li>
                             <li><strong>🇮🇹 Italy:</strong> Experienced the rich history, art, and cuisine that inspired Renaissance masters</li>
-                            <li><strong>🇨🇳 China:</strong> Explored the contrast between ancient traditions and modern innovation</li>
+                            <li><strong>🇭🇰 Hong Kong:</strong> Took in the skyline over Victoria Harbour, where dense city lights meet the water</li>
+                            <li><strong>🇨🇳 Shanghai:</strong> Explored the contrast between ancient traditions and modern innovation</li>
+                            <li><strong>🇨🇳 Guangzhou:</strong> Wandered a lantern-lit temple tucked beneath the city's skyscrapers</li>
                             <li>And many more destinations that continue to broaden my horizons</li>
                         </ul>
                         <p style="margin-top: 15px;">Each place I visit teaches me something new about the world and myself, fueling both my personal growth and creative expression.</p>
@@ -1229,7 +1384,9 @@
                                     <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/travel.jpg" alt="Ponte Vecchio, Florence"></div>
                                     <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/japan.jpg" alt="Japan"></div>
                                     <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/korea.jpg" alt="South Korea"></div>
-                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/china.jpg" alt="China"></div>
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/shanghai.jpg" alt="Shanghai"></div>
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/hongkong_skyline.jpg" alt="Hong Kong skyline"></div>
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/guangzhou_temple.jpg" alt="Guangzhou temple"></div>
                                     <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/italy.jpg" alt="Florence, Italy"></div>
                                 </div>
                                 <button class="carousel-btn carousel-btn-left" onclick="travelGalleryChange(-1)">◀</button>
@@ -1239,7 +1396,7 @@
                                 <p class="gallery-text" id="travel-gallery-text">Experienced the rich history, art, and cuisine that inspired Renaissance masters.</p>
                             </div>
                             <div class="carousel-counter">
-                                <span id="travel-gallery-counter">1 / 5</span>
+                                <span id="travel-gallery-counter">1 / 7</span>
                             </div>
                         </div>
                     </div>
@@ -1259,6 +1416,7 @@
                                     <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food2.jpg" alt="Izakaya night"></div>
                                     <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food3.jpg" alt="Take 31"></div>
                                     <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/culinary.jpg" alt="Shared plates"></div>
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food_hotpot.jpg" alt="Skyline dinner spread"></div>
                                 </div>
                                 <button class="carousel-btn carousel-btn-left" onclick="foodGalleryChange(-1)">◀</button>
                                 <button class="carousel-btn carousel-btn-right" onclick="foodGalleryChange(1)">▶</button>
@@ -1267,7 +1425,7 @@
                                 <p class="gallery-text" id="food-gallery-text">A spicy Sichuan spread with mapo tofu, chili chicken, and fried rice.</p>
                             </div>
                             <div class="carousel-counter">
-                                <span id="food-gallery-counter">1 / 5</span>
+                                <span id="food-gallery-counter">1 / 6</span>
                             </div>
                         </div>
                     </div>
@@ -1310,7 +1468,7 @@
                 <div class="footer-links">
                     <p class="footer-heading">QUICK LINKS</p>
                     <button onclick="showPage('home')">HOME</button>
-                    <button onclick="showPage('projects')">PROJECTS</button>
+                    <button onclick="showPage('experience')">EXPERIENCE</button>
                     <button onclick="showPage('art')">ART</button>
                     <button onclick="showPage('fitness')">FITNESS</button>
                     <button onclick="showPage('leadership')">LEADERSHIP</button>
@@ -1382,25 +1540,63 @@
             { title: '🏂 SNOWBOARDING', years: '9 YEARS OF TRAINING', text: "Snowboarding is more of a seasonal hobby but I think that's what makes it so exciting. I get to look forward to these couple months throughout a year. The anticipation and simultaneous peace I get from riding up the ski lift is an indescribable feeling. Carving down mountains in the snow has given me comfort since I was 13, and is now something I can enjoy even now." }
         ]);
 
-        const artGalleryChange = setupGalleryCarousel('art', [
-            { title: 'COLOSSEUM SKETCH', text: 'Pen and ink sketch drawn on location at the Colosseum in Rome, Italy.' },
-            { title: 'OCEAN STUDY', text: 'Graphite study of ocean waves.' },
-            { title: 'PORTRAIT STUDY', text: 'Graphite portrait study, built up section by section.' },
-            { title: 'WINTER PATH', text: 'Pen and ink drawing of a winter path lined with trees and lampposts.' },
-            { title: 'ROSE IN THE WIND', text: 'Graphite drawing of a rose sheltered inside a lantern.' },
-            { title: 'CHARACTER CONCEPT ART', text: 'Character design and concept art sketches.' },
-            { title: 'WATERFRONT PROMENADE', text: 'Graphite drawing of a tree-lined waterfront path.' },
-            { title: 'PORTRAIT IN SHADES', text: 'Graphite portrait drawing.' },
-            { title: 'INK MOUNTAINS', text: 'Ink and wash mountain landscape.' },
-            { title: 'MENDING THE MONARCH', text: "Graphite drawing of a hand stitching a monarch butterfly's wings back together." },
-            { title: 'BLINDFOLDED', text: 'Colored pencil portrait.' }
-        ]);
+        // Interactive art gallery — grid of tiles that open into a lightbox
+        const artPieces = [
+            { src: 'art_colosseum.jpg', title: 'COLOSSEUM SKETCH', text: 'Pen and ink sketch drawn on location at the Colosseum in Rome, Italy.' },
+            { src: 'art_ocean.jpg', title: 'OCEAN STUDY', text: 'Graphite study of ocean waves.' },
+            { src: 'IMG_4024.jpg', title: 'PORTRAIT STUDY', text: 'Graphite portrait study, built up section by section.' },
+            { src: 'IMG_4025.jpg', title: 'WINTER PATH', text: 'Pen and ink drawing of a winter path lined with trees and lampposts.' },
+            { src: 'IMG_4028.jpg', title: 'ROSE IN THE WIND', text: 'Graphite drawing of a rose sheltered inside a lantern.' },
+            { src: 'IMG_4030.jpg', title: 'CHARACTER CONCEPT ART', text: 'Character design and concept art sketches.' },
+            { src: 'IMG_4032.jpg', title: 'WATERFRONT PROMENADE', text: 'Graphite drawing of a tree-lined waterfront path.' },
+            { src: 'IMG_4038.jpg', title: 'PORTRAIT IN SHADES', text: 'Graphite portrait drawing.' },
+            { src: 'IMG_4039.jpg', title: 'INK MOUNTAINS', text: 'Ink and wash mountain landscape.' },
+            { src: 'IMG_4052.jpg', title: 'MENDING THE MONARCH', text: "Graphite drawing of a hand stitching a monarch butterfly's wings back together." },
+            { src: 'IMG_4053.jpg', title: 'BLINDFOLDED', text: 'Colored pencil portrait.' },
+            { src: 'sketch_camera.jpg', title: 'CAMERA SKETCH', text: 'Graphite sketch of a camera, drawn from observation in my sketchbook.' }
+        ];
+
+        let artLightboxIndex = 0;
+        const artRepoBase = 'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/';
+
+        function renderArtLightbox() {
+            const piece = artPieces[artLightboxIndex];
+            document.getElementById('art-lightbox-img').src = artRepoBase + piece.src;
+            document.getElementById('art-lightbox-img').alt = piece.title;
+            document.getElementById('art-lightbox-title').textContent = piece.title;
+            document.getElementById('art-lightbox-text').textContent = piece.text;
+            document.getElementById('art-lightbox-counter').textContent = `${artLightboxIndex + 1} / ${artPieces.length}`;
+        }
+
+        function openArtLightbox(index) {
+            artLightboxIndex = index;
+            renderArtLightbox();
+            document.getElementById('art-lightbox').classList.add('active');
+        }
+
+        function closeArtLightbox() {
+            document.getElementById('art-lightbox').classList.remove('active');
+        }
+
+        function artLightboxNav(direction) {
+            artLightboxIndex = (artLightboxIndex + direction + artPieces.length) % artPieces.length;
+            renderArtLightbox();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('art-lightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') closeArtLightbox();
+            if (e.key === 'ArrowLeft') artLightboxNav(-1);
+            if (e.key === 'ArrowRight') artLightboxNav(1);
+        });
 
         const travelGalleryChange = setupGalleryCarousel('travel', [
             { title: '🇮🇹 PONTE VECCHIO', text: 'Experienced the rich history, art, and cuisine that inspired Renaissance masters.' },
             { title: '🇯🇵 JAPAN', text: 'Immersed myself in the unique blend of traditional culture and cutting-edge technology.' },
             { title: '🇰🇷 SOUTH KOREA', text: 'A rooftop sunset over the Seoul skyline.' },
-            { title: '🇨🇳 CHINA', text: 'Explored the contrast between ancient traditions and modern innovation.' },
+            { title: '🇨🇳 SHANGHAI', text: 'Explored the contrast between ancient traditions and modern innovation.' },
+            { title: '🇭🇰 HONG KONG', text: 'Victoria Harbour at night, where the skyline lights up along the water.' },
+            { title: '🇨🇳 GUANGZHOU', text: 'A lantern-lit temple courtyard tucked beneath the city’s skyscrapers.' },
             { title: '🇮🇹 FLORENCE', text: 'Experienced the rich history, art, and cuisine that inspired Renaissance masters.' }
         ]);
 
@@ -1409,7 +1605,8 @@
             { title: 'SKEWER MARKET', text: 'Fresh skewers at a street food market.' },
             { title: 'IZAKAYA NIGHT', text: 'A Japanese izakaya spread of takoyaki, okonomiyaki, and yakitori.' },
             { title: 'TAKE 31', text: 'Korean fusion small plates — corn cheese, bossam, and crispy tots.' },
-            { title: 'SHARED PLATES', text: 'Sharing a hot pot and small plates with friends.' }
+            { title: 'SHARED PLATES', text: 'Sharing a hot pot and small plates with friends.' },
+            { title: 'SKYLINE DINNER', text: 'Sashimi, skewers, and hot pot with a city skyline view lighting up the window.' }
         ]);
 
         const importantGalleryChange = setupGalleryCarousel('important', [
