@@ -25,12 +25,23 @@
             image-rendering: pixelated;
         }
         
-        body.page-home { background: #0a0a0a; }
-        body.page-projects { background: #0a0a14; }
-        body.page-art { background: #140a0f; }
-        body.page-fitness { background: #0a140f; }
-        body.page-leadership { background: #140f0a; }
-        body.page-lifestyle { background: #0f0a14; }
+        body.page-home { background: linear-gradient(180deg, #0a0a0a 0%, #0a1020 45%, #120a1f 100%); }
+        body.page-projects { background: linear-gradient(180deg, #0a0a14 0%, #120a1f 45%, #1a0f24 100%); }
+        body.page-art { background: linear-gradient(180deg, #140a0f 0%, #1f0a17 45%, #1a0a12 100%); }
+        body.page-fitness { background: linear-gradient(180deg, #0a140f 0%, #0a1f16 45%, #0a1a13 100%); }
+        body.page-leadership { background: linear-gradient(180deg, #140f0a 0%, #1f150a 45%, #1a120a 100%); }
+        body.page-lifestyle { background: linear-gradient(180deg, #0f0a14 0%, #1a0a1f 45%, #150a1a 100%); }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.6) 1px, transparent 1px);
+            background-size: 48px 48px;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
         
         .container {
             max-width: 1400px;
@@ -131,10 +142,34 @@
         
         .nav-buttons {
             display: flex;
-            gap: 10px;
+            gap: 6px;
             align-items: center;
+            background: #000;
+            border: 2px solid #27272a;
+            border-radius: 999px;
+            padding: 6px 10px;
         }
-        
+
+        .nav-cta {
+            background: #c4ff0d;
+            color: #000;
+            border: 2px solid #000;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.45em;
+            font-weight: 400;
+            padding: 12px 18px;
+            cursor: pointer;
+            letter-spacing: 0.05em;
+            box-shadow: 3px 3px 0px #000;
+            transition: all 0.1s ease;
+            white-space: nowrap;
+        }
+
+        .nav-cta:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px #000;
+        }
+
         .nav-buttons button {
             color: #a1a1aa;
             background: transparent;
@@ -230,12 +265,16 @@
             display: flex;
             align-items: center;
             padding-top: 80px;
+            position: relative;
+            overflow: hidden;
         }
-        
+
         .hero-content {
             max-width: 900px;
+            position: relative;
+            z-index: 1;
         }
-        
+
         .status-badge {
             display: inline-block;
             padding: 8px 16px;
@@ -247,6 +286,85 @@
             margin-bottom: 30px;
             letter-spacing: 0.05em;
             box-shadow: 4px 4px 0px #3b82f6;
+        }
+
+        .status-badge::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin-right: 8px;
+            background: #c4ff0d;
+            animation: pixel-pulse 1.4s steps(2) infinite;
+        }
+
+        @keyframes pixel-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.25; }
+        }
+
+        .hero-cta-row {
+            display: flex;
+            gap: 16px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.5em;
+            font-weight: 400;
+            padding: 16px 22px;
+            cursor: pointer;
+            letter-spacing: 0.05em;
+            border: 3px solid #3b82f6;
+            transition: all 0.1s ease;
+        }
+
+        .hero-btn-primary {
+            background: #3b82f6;
+            color: #000;
+            box-shadow: 4px 4px 0px #000;
+        }
+
+        .hero-btn-outline {
+            background: #000;
+            color: #3b82f6;
+            box-shadow: 4px 4px 0px #3b82f6;
+        }
+
+        .hero-btn:hover {
+            transform: translate(-3px, -3px);
+        }
+
+        .hero-btn-primary:hover {
+            box-shadow: 7px 7px 0px #000;
+        }
+
+        .hero-btn-outline:hover {
+            box-shadow: 7px 7px 0px #3b82f6;
+        }
+
+        .giveaway-card {
+            position: relative;
+            border: 3px dashed #3b82f6;
+            background: #000;
+            padding: 50px 30px 30px;
+            box-shadow: 6px 6px 0px #3b82f6;
+        }
+
+        .giveaway-card .floating-icon {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.6em;
+            animation: float-bounce 3s ease-in-out infinite;
+        }
+
+        @keyframes float-bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
         }
         
         .contact-links {
@@ -353,12 +471,24 @@
         }
         
         .date {
-            color: #71717a;
+            display: inline-block;
+            background: #000;
+            border: 2px solid #3b82f6;
+            color: #3b82f6;
             font-style: normal;
             margin-bottom: 15px;
+            padding: 4px 10px;
             font-size: 0.5em;
             font-weight: 400;
+            letter-spacing: 0.05em;
+            box-shadow: 3px 3px 0px #3b82f6;
         }
+
+        body.page-projects .date { border-color: #a78bfa; color: #a78bfa; box-shadow: 3px 3px 0px #a78bfa; }
+        body.page-art .date { border-color: #f472b6; color: #f472b6; box-shadow: 3px 3px 0px #f472b6; }
+        body.page-fitness .date { border-color: #34d399; color: #34d399; box-shadow: 3px 3px 0px #34d399; }
+        body.page-leadership .date { border-color: #f87171; color: #f87171; box-shadow: 3px 3px 0px #f87171; }
+        body.page-lifestyle .date { border-color: #fb923c; color: #fb923c; box-shadow: 3px 3px 0px #fb923c; }
         
         .skills-grid {
             display: grid;
@@ -368,24 +498,30 @@
         
         .skill-category {
             background: #000;
-            border: 3px solid #3b82f6;
+            border: 3px solid var(--accent, #3b82f6);
             padding: 25px;
             transition: all 0.1s ease;
-            box-shadow: 5px 5px 0px #3b82f6;
+            box-shadow: 5px 5px 0px var(--accent, #3b82f6);
         }
-        
+
         .skill-category:hover {
             transform: translate(-3px, -3px);
-            box-shadow: 8px 8px 0px #3b82f6;
+            box-shadow: 8px 8px 0px var(--accent, #3b82f6);
         }
-        
+
         .skill-category h4 {
             margin-bottom: 20px;
             font-size: 0.65em;
-            color: #3b82f6;
+            color: var(--accent, #3b82f6);
             font-weight: 400;
             letter-spacing: 0.05em;
         }
+
+        body.page-home .skills-grid .skill-category:nth-child(1) { --accent: #3b82f6; }
+        body.page-home .skills-grid .skill-category:nth-child(2) { --accent: #a78bfa; }
+        body.page-home .skills-grid .skill-category:nth-child(3) { --accent: #34d399; }
+        body.page-home .skills-grid .skill-category:nth-child(4) { --accent: #f472b6; }
+        body.page-home .skills-grid .skill-category:nth-child(5) { --accent: #fb923c; }
         
         .skill-category ul { list-style: none; }
         
@@ -403,36 +539,84 @@
         }
         
         footer {
-            text-align: center;
-            padding: 60px 40px;
-            color: #52525b;
+            text-align: left;
+            padding: 60px 40px 30px;
+            color: #a1a1aa;
             margin-top: 80px;
             border-top: 4px solid rgba(196, 255, 13, 0.2);
             font-size: 0.5em;
         }
-        
+
         footer p {
             margin: 8px 0;
             line-height: 1.8;
         }
-        
-        .floating-shape {
-            position: fixed;
-            background: repeating-linear-gradient(45deg, rgba(196, 255, 13, 0.03), rgba(196, 255, 13, 0.03) 10px, transparent 10px, transparent 20px);
-            pointer-events: none;
-            z-index: 0;
-            transition: background 0.5s ease;
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
         }
-        
-        body.page-home .floating-shape { background: repeating-linear-gradient(45deg, rgba(59, 130, 246, 0.03), rgba(59, 130, 246, 0.03) 10px, transparent 10px, transparent 20px); }
-        body.page-projects .floating-shape { background: repeating-linear-gradient(45deg, rgba(167, 139, 250, 0.03), rgba(167, 139, 250, 0.03) 10px, transparent 10px, transparent 20px); }
-        body.page-art .floating-shape { background: repeating-linear-gradient(45deg, rgba(244, 114, 182, 0.03), rgba(244, 114, 182, 0.03) 10px, transparent 10px, transparent 20px); }
-        body.page-fitness .floating-shape { background: repeating-linear-gradient(45deg, rgba(52, 211, 153, 0.03), rgba(52, 211, 153, 0.03) 10px, transparent 10px, transparent 20px); }
-        body.page-leadership .floating-shape { background: repeating-linear-gradient(45deg, rgba(248, 113, 113, 0.03), rgba(248, 113, 113, 0.03) 10px, transparent 10px, transparent 20px); }
-        body.page-lifestyle .floating-shape { background: repeating-linear-gradient(45deg, rgba(251, 146, 60, 0.03), rgba(251, 146, 60, 0.03) 10px, transparent 10px, transparent 20px); }
-        
-        .shape-1 { width: 600px; height: 600px; top: -200px; right: -200px; }
-        .shape-2 { width: 400px; height: 400px; bottom: -100px; left: -100px; }
+
+        .footer-logo {
+            font-size: 1.2em;
+            color: #fff;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span { color: #c4ff0d; }
+
+        .footer-tagline {
+            color: #71717a;
+            line-height: 1.8;
+        }
+
+        .footer-heading {
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-links, .footer-social {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links button, .footer-social a, .footer-social .email-contact {
+            background: none;
+            border: none;
+            color: #a1a1aa;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1em;
+            text-align: left;
+            cursor: pointer;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            padding: 0;
+            transition: color 0.1s ease;
+        }
+
+        .footer-links button:hover, .footer-social a:hover, .footer-social .email-contact:hover {
+            color: #c4ff0d;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 2px solid #27272a;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            color: #52525b;
+        }
+
+        .footer-bottom p { margin: 0; }
         
         .accent-line {
             position: fixed;
@@ -466,7 +650,6 @@
         body.page-leadership h2::after { background: repeating-linear-gradient(90deg, #f87171 0px, #f87171 10px, transparent 10px, transparent 20px); }
         body.page-lifestyle h2::after { background: repeating-linear-gradient(90deg, #fb923c 0px, #fb923c 10px, transparent 10px, transparent 20px); }
         
-        body.page-home .skill-category h4 { color: #3b82f6; }
         body.page-projects .skill-category h4 { color: #a78bfa; }
         body.page-art .skill-category h4 { color: #f472b6; }
         body.page-fitness .skill-category h4 { color: #34d399; }
@@ -514,27 +697,55 @@
         body.page-leadership h3 { color: #f87171; }
         body.page-lifestyle h3 { color: #fb923c; }
         
-        /* Image Carousel Styles */
-        .carousel-container {
-            position: relative;
+        /* Unified Gallery Carousel */
+        .gallery-carousel {
             max-width: 800px;
-            margin: 30px auto;
-            border: 3px solid #f472b6;
-            background: #000;
-            box-shadow: 6px 6px 0px #f472b6;
+            margin: 30px auto 0;
         }
-        
-        .carousel-image {
+
+        .gallery-title {
+            text-align: center;
+            font-size: 0.75em;
+            color: var(--carousel-accent, #3b82f6);
+            margin-bottom: 15px;
+            letter-spacing: 0.05em;
+            text-shadow: 2px 2px 0px #000;
+        }
+
+        .gallery-viewport {
+            position: relative;
+            overflow: hidden;
+            border: 3px solid var(--carousel-accent, #3b82f6);
+            background: #000;
+            box-shadow: 6px 6px 0px var(--carousel-accent, #3b82f6);
+        }
+
+        .gallery-track {
+            display: flex;
+            transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform;
+            backface-visibility: hidden;
+        }
+
+        .gallery-slide {
+            flex: 0 0 100%;
+            min-width: 100%;
+            backface-visibility: hidden;
+        }
+
+        .gallery-slide img {
             width: 100%;
-            height: auto;
+            height: 500px;
+            object-fit: cover;
             display: block;
         }
-        
+
         .carousel-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(244, 114, 182, 0.8);
+            background: var(--carousel-accent, #3b82f6);
+            opacity: 0.85;
             color: #000;
             border: 3px solid #000;
             font-family: 'Press Start 2P', cursive;
@@ -544,100 +755,70 @@
             transition: all 0.1s ease;
             user-select: none;
         }
-        
+
         .carousel-btn:hover {
-            background: #f472b6;
+            opacity: 1;
             transform: translateY(-50%) scale(1.1);
         }
-        
+
         .carousel-btn-left {
             left: 10px;
         }
-        
+
         .carousel-btn-right {
             right: 10px;
         }
-        
+
+        .gallery-caption {
+            padding: 20px 25px;
+            background: #000;
+            border-left: 3px solid var(--carousel-accent, #3b82f6);
+            border-right: 3px solid var(--carousel-accent, #3b82f6);
+        }
+
+        .gallery-years {
+            color: var(--carousel-accent, #3b82f6);
+            font-size: 0.5em;
+            margin-bottom: 12px;
+            letter-spacing: 0.05em;
+        }
+
+        .gallery-text {
+            color: #a1a1aa;
+            font-size: 0.55em;
+            line-height: 1.8;
+        }
+
         .carousel-counter {
             text-align: center;
             padding: 15px;
             background: #000;
-            color: #f472b6;
+            color: var(--carousel-accent, #3b82f6);
             font-family: 'Press Start 2P', cursive;
             font-size: 0.6em;
-            border-top: 3px solid #f472b6;
+            border: 3px solid var(--carousel-accent, #3b82f6);
+            border-top: none;
         }
-        
-        /* Lifestyle Carousels */
-        .carousel-lifestyle-travel .carousel-container {
-            border-color: #fb923c;
-            box-shadow: 6px 6px 0px #fb923c;
-        }
-        
-        .carousel-lifestyle-travel .carousel-btn {
-            background: rgba(251, 146, 60, 0.8);
-        }
-        
-        .carousel-lifestyle-travel .carousel-btn:hover {
-            background: #fb923c;
-        }
-        
-        .carousel-lifestyle-travel .carousel-counter {
-            color: #fb923c;
-            border-top-color: #fb923c;
-        }
-        
-        .carousel-lifestyle-food .carousel-container {
-            border-color: #fb923c;
-            box-shadow: 6px 6px 0px #fb923c;
-        }
-        
-        .carousel-lifestyle-food .carousel-btn {
-            background: rgba(251, 146, 60, 0.8);
-        }
-        
-        .carousel-lifestyle-food .carousel-btn:hover {
-            background: #fb923c;
-        }
-        
-        .carousel-lifestyle-food .carousel-counter {
-            color: #fb923c;
-            border-top-color: #fb923c;
-        }
-        
-        .carousel-lifestyle-important .carousel-container {
-            border-color: #fb923c;
-            box-shadow: 6px 6px 0px #fb923c;
-        }
-        
-        .carousel-lifestyle-important .carousel-btn {
-            background: rgba(251, 146, 60, 0.8);
-        }
-        
-        .carousel-lifestyle-important .carousel-btn:hover {
-            background: #fb923c;
-        }
-        
-        .carousel-lifestyle-important .carousel-counter {
-            color: #fb923c;
-            border-top-color: #fb923c;
-        }
-        
+
         @media (max-width: 768px) {
+            .gallery-slide img { height: 320px; }
             .container, .header-content { padding: 20px; }
             h1 { font-size: 1.3em; }
             h2 { font-size: 1em; }
+            .header-content { flex-wrap: wrap; gap: 12px; }
             .nav-buttons { flex-wrap: wrap; gap: 5px; }
             .nav-buttons button { font-size: 0.4em; padding: 6px 10px; }
+            .nav-cta { font-size: 0.4em; padding: 10px 14px; }
+            .hero-cta-row { flex-direction: column; }
+            .hero-btn { font-size: 0.45em; }
             .contact-links { flex-direction: column; }
             .contact-links a, .contact-links .email-contact { font-size: 0.4em; }
             .experience-item, .project-item, .education-item, .interest-detail { padding: 20px; }
+            .footer-top { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="floating-shape shape-1"></div>
-    <div class="floating-shape shape-2"></div>
     <div class="accent-line"></div>
     
     <header>
@@ -651,6 +832,7 @@
                 <button onclick="showPage('leadership')" id="btn-leadership">🤝 LEAD</button>
                 <button onclick="showPage('lifestyle')" id="btn-lifestyle">🌍 LIFE</button>
             </div>
+            <button class="nav-cta" onclick="copyEmail()">✉ HIRE ME</button>
         </div>
     </header>
     
@@ -663,7 +845,12 @@
                         <div class="status-badge">▸ AVAILABLE FOR OPPORTUNITIES</div>
                         <h1>CREATIVE<br>COMPUTER<br>ENGINEER</h1>
                         <p class="tagline">Full-stack developer specializing in React, Python, and modern web technologies. Building innovative solutions that make a difference.</p>
-                        
+
+                        <div class="hero-cta-row">
+                            <button class="hero-btn hero-btn-primary" onclick="copyEmail()">GET IN TOUCH</button>
+                            <button class="hero-btn hero-btn-outline" onclick="showPage('projects')">VIEW PROJECTS</button>
+                        </div>
+
                         <!-- About Me Image -->
                         <div style="text-align: center; margin-top: 30px;">
                             <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/about_me.jpg" alt="Kyle Auyeung" style="max-width: 400px; width: 100%; border: 3px solid #3b82f6; box-shadow: 6px 6px 0px #3b82f6;">
@@ -708,7 +895,7 @@
                         </ul>
                     </div>
                     <div class="experience-item">
-                        <h3>💻 SOFTWARE DEVELOPER INTERN</h3>
+                        <h3>💻 FRONT-END DEVELOPER INTERN</h3>
                         <p><strong>Klic AI</strong></p>
                         <p class="date">OCTOBER 2025 - JANUARY 2026</p>
                         <ul style="margin-left: 20px; margin-top: 10px;">
@@ -789,11 +976,14 @@
                 
                 <section id="contact">
                     <h2>▸ GET IN TOUCH 📧</h2>
-                    <div class="contact-links">
-                        <div class="email-contact primary-btn" onclick="copyEmail()">GET IN TOUCH</div>
-                        <a href="https://www.linkedin.com/in/kyle-auyeung/" target="_blank">LINKEDIN</a>
-                        <a href="https://github.com/kyauyeung" target="_blank">GITHUB</a>
-                        <div class="email-contact" onclick="copyEmailSimple()">EMAIL</div>
+                    <div class="giveaway-card">
+                        <span class="floating-icon">📬</span>
+                        <div class="contact-links">
+                            <div class="email-contact primary-btn" onclick="copyEmail()">GET IN TOUCH</div>
+                            <a href="https://www.linkedin.com/in/kyle-auyeung/" target="_blank">LINKEDIN</a>
+                            <a href="https://github.com/kyauyeung" target="_blank">GITHUB</a>
+                            <div class="email-contact" onclick="copyEmailSimple()">EMAIL</div>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -851,62 +1041,70 @@
                         <p style="margin-top: 15px;"><strong>Gallery Exhibitions:</strong> My artwork has been displayed in multiple galleries, showcasing pieces that blend technical precision with artistic expression.</p>
                     </div>
                     
-                    <!-- Image Carousel - Separate Box -->
-                    <div class="interest-detail" style="margin-top: 30px;">
-                        <h3>🖼️ MY GALLERY</h3>
-                        <div class="carousel-container" style="margin-top: 20px;">
-                            <img id="carousel-image" class="carousel-image" src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/art_colosseum.jpg" alt="Artwork">
-                            <button class="carousel-btn carousel-btn-left" onclick="changeArtImage(-1)">◀</button>
-                            <button class="carousel-btn carousel-btn-right" onclick="changeArtImage(1)">▶</button>
-                            <div class="carousel-counter">
-                                <span id="carousel-counter">1 / 12</span>
+                    <!-- Image Carousel -->
+                    <div class="gallery-carousel" style="--carousel-accent: #f472b6; margin-top: 30px;">
+                        <div class="gallery-title" id="art-gallery-title">COLOSSEUM SKETCH</div>
+                        <div class="gallery-viewport">
+                            <div class="gallery-track" id="art-gallery-track">
+                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/art_colosseum.jpg" alt="Colosseum sketch"></div>
+                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/art_ocean.jpg" alt="Ocean study"></div>
+                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4024.jpg" alt="Portrait study"></div>
+                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4025.jpg" alt="Winter path"></div>
+                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4028.jpg" alt="Rose in the wind"></div>
+                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4030.jpg" alt="Character concept art"></div>
+                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4032.jpg" alt="Waterfront promenade"></div>
+                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4038.jpg" alt="Portrait in shades"></div>
+                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4039.jpg" alt="Ink mountains"></div>
+                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4052.jpg" alt="Mending the monarch"></div>
+                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4053.jpg" alt="Blindfolded"></div>
                             </div>
+                            <button class="carousel-btn carousel-btn-left" onclick="artGalleryChange(-1)">◀</button>
+                            <button class="carousel-btn carousel-btn-right" onclick="artGalleryChange(1)">▶</button>
+                        </div>
+                        <div class="gallery-caption">
+                            <p class="gallery-text" id="art-gallery-text">Pen and ink sketch drawn on location at the Colosseum in Rome, Italy.</p>
+                        </div>
+                        <div class="carousel-counter">
+                            <span id="art-gallery-counter">1 / 11</span>
                         </div>
                     </div>
                 </section>
             </div>
-            
+
             <!-- FITNESS PAGE -->
             <div id="page-fitness" class="page">
                 <section>
                     <h2>▸ FITNESS 💪</h2>
-                    
-                    <div class="interest-detail">
-                        <h3>🥊 BOXING</h3>
-                        <p class="date">6 YEARS OF TRAINING</p>
-                        <p>Boxing has been my primary discipline for the past six years. I train regularly, focusing on technique, conditioning, and mental toughness. The sport has taught me discipline, perseverance, and the importance of strategic thinking - skills that translate directly to problem-solving in engineering.</p>
-                        <div style="text-align: center; margin-top: 20px;">
-                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/boxing.jpg" alt="Boxing Training" style="max-width: 500px; width: 100%; border: 3px solid #34d399; box-shadow: 6px 6px 0px #34d399;">
+
+                    <div class="gallery-carousel" style="--carousel-accent: #34d399;">
+                        <div class="gallery-title" id="fitness-gallery-title">🏋️ GYM TRAINING</div>
+                        <div class="gallery-viewport">
+                            <div class="gallery-track" id="fitness-gallery-track">
+                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/gym_training.jpg" alt="Gym Training"></div>
+                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/boxing.jpg" alt="Boxing Training"></div>
+                                <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/snowboard.jpg" alt="Snowboarding"></div>
+                            </div>
+                            <button class="carousel-btn carousel-btn-left" onclick="fitnessGalleryChange(-1)">◀</button>
+                            <button class="carousel-btn carousel-btn-right" onclick="fitnessGalleryChange(1)">▶</button>
+                        </div>
+                        <div class="gallery-caption">
+                            <p class="gallery-years" id="fitness-gallery-years">6 YEARS OF TRAINING</p>
+                            <p class="gallery-text" id="fitness-gallery-text">Regular gym sessions round out my fitness routine. I focus on strength training, functional movements, and maintaining overall physical health to support all my other athletic pursuits. It's also become another expressive outlet for me much like my other hobbies, I use the gym to relieve stress.</p>
+                        </div>
+                        <div class="carousel-counter">
+                            <span id="fitness-gallery-counter">1 / 3</span>
                         </div>
                     </div>
-                    
-                    <div class="interest-detail">
+
+                    <div class="interest-detail" style="margin-top: 40px;">
                         <h3>💃 DANCE</h3>
                         <p class="date">5 YEARS OF TRAINING</p>
                         <p>Dancing provides a creative outlet that complements the intensity of boxing. It improves coordination, rhythm, and body awareness while being an enjoyable form of expression and cardio. I think it really says a lot about a person too, even if you can't dance you're never too cool to join a dance floor.</p>
                     </div>
-                    
-                    <div class="interest-detail">
-                        <h3>🏂 SNOWBOARDING</h3>
-                        <p class="date">9 YEARS OF TRAINING</p>
-                        <p>Snowboarding is more of a seasonal hobby but I think that's what makes it so exciting. I get to look forward to these couple months throughout a year. The anticipation and simultaneous peace I get from riding up the ski lift is an indescribable feeling. Carving down mountains in the snow has given me comfort since I was 13, and is now something I can enjoy even now.</p>
-                        <div style="text-align: center; margin-top: 20px;">
-                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/snowboard.jpg" alt="Snowboarding" style="max-width: 500px; width: 100%; border: 3px solid #34d399; box-shadow: 6px 6px 0px #34d399;">
-                        </div>
-                    </div>
-                    
+
                     <div class="interest-detail">
                         <h3>🏀 BASKETBALL</h3>
                         <p>Basketball is my go-to team sport. I enjoy the strategic elements of the game and the teamwork required to succeed. Whether it's pickup games or organized leagues, basketball keeps me sharp both physically and mentally. I also occasionally watch a game with my friends, we like to keep up with the NBA.</p>
-                    </div>
-                    
-                    <div class="interest-detail">
-                        <h3>🏋️ GYM TRAINING</h3>
-                        <p class="date">6 YEARS OF TRAINING</p>
-                        <p>Regular gym sessions round out my fitness routine. I focus on strength training, functional movements, and maintaining overall physical health to support all my other athletic pursuits. It's also become another expressive outlet for me much like my other hobbies, I use the gym to relieve stress.</p>
-                        <div style="text-align: center; margin-top: 20px;">
-                            <img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/gym_training.jpg" alt="Gym Training" style="max-width: 500px; width: 100%; border: 3px solid #34d399; box-shadow: 6px 6px 0px #34d399;">
-                        </div>
                     </div>
                 </section>
             </div>
@@ -985,14 +1183,24 @@
                         <p style="margin-top: 15px;">Each place I visit teaches me something new about the world and myself, fueling both my personal growth and creative expression.</p>
                         
                         <!-- Travel Carousel -->
-                        <div class="carousel-lifestyle-travel" style="margin-top: 30px;">
-                            <div class="carousel-container">
-                                <img id="carousel-travel-image" class="carousel-image" src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/travel.jpg" alt="Travel Photo">
-                                <button class="carousel-btn carousel-btn-left" onclick="changeTravelImage(-1)">◀</button>
-                                <button class="carousel-btn carousel-btn-right" onclick="changeTravelImage(1)">▶</button>
-                                <div class="carousel-counter">
-                                    <span id="carousel-travel-counter">1 / 5</span>
+                        <div class="gallery-carousel" style="--carousel-accent: #fb923c; margin-top: 30px;">
+                            <div class="gallery-title" id="travel-gallery-title">🇮🇹 PONTE VECCHIO</div>
+                            <div class="gallery-viewport">
+                                <div class="gallery-track" id="travel-gallery-track">
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/travel.jpg" alt="Ponte Vecchio, Florence"></div>
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/japan.jpg" alt="Japan"></div>
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/korea.jpg" alt="South Korea"></div>
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/china.jpg" alt="China"></div>
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/italy.jpg" alt="Florence, Italy"></div>
                                 </div>
+                                <button class="carousel-btn carousel-btn-left" onclick="travelGalleryChange(-1)">◀</button>
+                                <button class="carousel-btn carousel-btn-right" onclick="travelGalleryChange(1)">▶</button>
+                            </div>
+                            <div class="gallery-caption">
+                                <p class="gallery-text" id="travel-gallery-text">Experienced the rich history, art, and cuisine that inspired Renaissance masters.</p>
+                            </div>
+                            <div class="carousel-counter">
+                                <span id="travel-gallery-counter">1 / 5</span>
                             </div>
                         </div>
                     </div>
@@ -1003,14 +1211,24 @@
                         <p style="margin-top: 15px;">From street food markets to fine dining, I believe that food is one of the best ways to connect with different cultures and communities. Every meal is an opportunity to learn and appreciate the artistry that goes into creating something delicious.</p>
                         
                         <!-- Food Carousel -->
-                        <div class="carousel-lifestyle-food" style="margin-top: 30px;">
-                            <div class="carousel-container">
-                                <img id="carousel-food-image" class="carousel-image" src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food.jpg" alt="Food Photo">
-                                <button class="carousel-btn carousel-btn-left" onclick="changeFoodImage(-1)">◀</button>
-                                <button class="carousel-btn carousel-btn-right" onclick="changeFoodImage(1)">▶</button>
-                                <div class="carousel-counter">
-                                    <span id="carousel-food-counter">1 / 5</span>
+                        <div class="gallery-carousel" style="--carousel-accent: #fb923c; margin-top: 30px;">
+                            <div class="gallery-title" id="food-gallery-title">SICHUAN FEAST</div>
+                            <div class="gallery-viewport">
+                                <div class="gallery-track" id="food-gallery-track">
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food.jpg" alt="Sichuan feast"></div>
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food1.jpg" alt="Skewer market"></div>
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food2.jpg" alt="Izakaya night"></div>
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food3.jpg" alt="Take 31"></div>
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/culinary.jpg" alt="Shared plates"></div>
                                 </div>
+                                <button class="carousel-btn carousel-btn-left" onclick="foodGalleryChange(-1)">◀</button>
+                                <button class="carousel-btn carousel-btn-right" onclick="foodGalleryChange(1)">▶</button>
+                            </div>
+                            <div class="gallery-caption">
+                                <p class="gallery-text" id="food-gallery-text">A spicy Sichuan spread with mapo tofu, chili chicken, and fried rice.</p>
+                            </div>
+                            <div class="carousel-counter">
+                                <span id="food-gallery-counter">1 / 5</span>
                             </div>
                         </div>
                     </div>
@@ -1021,14 +1239,22 @@
                         <p style="margin-top: 15px;">I believe that life's best moments are shared with others. No matter how busy I get with work, projects, or personal pursuits, I always make sure to carve out time for the people I care about. These connections keep me grounded, inspired, and remind me what truly matters.</p>
                         
                         <!-- Important People Carousel -->
-                        <div class="carousel-lifestyle-important" style="margin-top: 30px;">
-                            <div class="carousel-container">
-                                <img id="carousel-important-image" class="carousel-image" src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/family.jpg" alt="Family and Friends">
-                                <button class="carousel-btn carousel-btn-left" onclick="changeImportantImage(-1)">◀</button>
-                                <button class="carousel-btn carousel-btn-right" onclick="changeImportantImage(1)">▶</button>
-                                <div class="carousel-counter">
-                                    <span id="carousel-important-counter">1 / 3</span>
+                        <div class="gallery-carousel" style="--carousel-accent: #fb923c; margin-top: 30px;">
+                            <div class="gallery-title" id="important-gallery-title">FAMILY</div>
+                            <div class="gallery-viewport">
+                                <div class="gallery-track" id="important-gallery-track">
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/family.jpg" alt="Family"></div>
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/friends.jpg" alt="Friends"></div>
+                                    <div class="gallery-slide"><img src="https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/friends2.jpg" alt="Friends"></div>
                                 </div>
+                                <button class="carousel-btn carousel-btn-left" onclick="importantGalleryChange(-1)">◀</button>
+                                <button class="carousel-btn carousel-btn-right" onclick="importantGalleryChange(1)">▶</button>
+                            </div>
+                            <div class="gallery-caption">
+                                <p class="gallery-text" id="important-gallery-text">Spending quality time with family.</p>
+                            </div>
+                            <div class="carousel-counter">
+                                <span id="important-gallery-counter">1 / 3</span>
                             </div>
                         </div>
                     </div>
@@ -1037,9 +1263,31 @@
         </div>
         
         <footer>
-            <p>© 2026 KYLE AUYEUNG</p>
-            <p>NEW YORK, NY</p>
-            <p>LET'S BUILD SOMETHING AMAZING!</p>
+            <div class="footer-top">
+                <div>
+                    <div class="footer-logo">KYLE AUYEUNG<span>.</span></div>
+                    <p class="footer-tagline">JUST A GUY WHO LIKES COMPUTERS A BIT TOO MUCH.</p>
+                </div>
+                <div class="footer-links">
+                    <p class="footer-heading">QUICK LINKS</p>
+                    <button onclick="showPage('home')">HOME</button>
+                    <button onclick="showPage('projects')">PROJECTS</button>
+                    <button onclick="showPage('art')">ART</button>
+                    <button onclick="showPage('fitness')">FITNESS</button>
+                    <button onclick="showPage('leadership')">LEADERSHIP</button>
+                    <button onclick="showPage('lifestyle')">LIFESTYLE</button>
+                </div>
+                <div class="footer-social">
+                    <p class="footer-heading">CONNECT</p>
+                    <a href="https://www.linkedin.com/in/kyle-auyeung/" target="_blank">LINKEDIN</a>
+                    <a href="https://github.com/kyauyeung" target="_blank">GITHUB</a>
+                    <div class="email-contact" onclick="copyEmailSimple()">EMAIL</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 KYLE AUYEUNG. ALL RIGHTS RESERVED.</p>
+                <p>NEW YORK, NY — LET'S BUILD SOMETHING AMAZING!</p>
+            </div>
         </footer>
     </div>
 
@@ -1060,104 +1308,77 @@
         }
         
         document.body.className = 'page-home';
-        
-        // Art image carousel
-        const artImages = [
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/art_colosseum.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/art_ocean.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4024.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4025.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4028.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4030.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4032.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4038.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4039.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4052.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_4053.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/IMG_1160.jpg'
-        ];
-        
-        let currentArtIndex = 0;
-        
-        function changeArtImage(direction) {
-            currentArtIndex += direction;
-            
-            // Loop around
-            if (currentArtIndex < 0) {
-                currentArtIndex = artImages.length - 1;
-            } else if (currentArtIndex >= artImages.length) {
-                currentArtIndex = 0;
+
+        // Unified sliding gallery carousel — used by every gallery on the site.
+        // Each carousel gets a prefix matching its element ids (prefix-gallery-track, etc.)
+        // and a slides array of {title?, years?, text} matched 1:1 with the .gallery-slide markup.
+        function setupGalleryCarousel(prefix, slides) {
+            let index = 0;
+            const track = document.getElementById(prefix + '-gallery-track');
+            const counter = document.getElementById(prefix + '-gallery-counter');
+            const titleEl = document.getElementById(prefix + '-gallery-title');
+            const yearsEl = document.getElementById(prefix + '-gallery-years');
+            const textEl = document.getElementById(prefix + '-gallery-text');
+
+            function render() {
+                track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
+                counter.textContent = `${index + 1} / ${slides.length}`;
+                const slide = slides[index];
+                if (titleEl && slide.title) titleEl.textContent = slide.title;
+                if (yearsEl && slide.years) yearsEl.textContent = slide.years;
+                if (textEl) textEl.textContent = slide.text;
             }
-            
-            // Update image and counter
-            document.getElementById('carousel-image').src = artImages[currentArtIndex];
-            document.getElementById('carousel-counter').textContent = `${currentArtIndex + 1} / ${artImages.length}`;
+
+            render();
+
+            return function change(direction) {
+                index = (index + direction + slides.length) % slides.length;
+                render();
+            };
         }
-        
-        // Travel carousel - 5 images (travel first, then japan, korea, china, italy)
-        const travelImages = [
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/travel.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/japan.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/korea.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/china.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/italy.jpg'
-        ];
-        
-        let currentTravelIndex = 0;
-        
-        function changeTravelImage(direction) {
-            currentTravelIndex += direction;
-            if (currentTravelIndex < 0) {
-                currentTravelIndex = travelImages.length - 1;
-            } else if (currentTravelIndex >= travelImages.length) {
-                currentTravelIndex = 0;
-            }
-            document.getElementById('carousel-travel-image').src = travelImages[currentTravelIndex];
-            document.getElementById('carousel-travel-counter').textContent = `${currentTravelIndex + 1} / ${travelImages.length}`;
-        }
-        
-        // Food carousel - 5 images (food, food1, food2, food3, culinary)
-        const foodImages = [
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food1.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food2.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/food3.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/culinary.jpg'
-        ];
-        
-        let currentFoodIndex = 0;
-        
-        function changeFoodImage(direction) {
-            currentFoodIndex += direction;
-            if (currentFoodIndex < 0) {
-                currentFoodIndex = foodImages.length - 1;
-            } else if (currentFoodIndex >= foodImages.length) {
-                currentFoodIndex = 0;
-            }
-            document.getElementById('carousel-food-image').src = foodImages[currentFoodIndex];
-            document.getElementById('carousel-food-counter').textContent = `${currentFoodIndex + 1} / ${foodImages.length}`;
-        }
-        
-        // Important people carousel - 3 images (family, friends, friends2)
-        const importantImages = [
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/family.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/friends.jpg',
-            'https://raw.githubusercontent.com/kyauyeung/kyauyeung.github.io/main/friends2.jpg'
-        ];
-        
-        let currentImportantIndex = 0;
-        
-        function changeImportantImage(direction) {
-            currentImportantIndex += direction;
-            if (currentImportantIndex < 0) {
-                currentImportantIndex = importantImages.length - 1;
-            } else if (currentImportantIndex >= importantImages.length) {
-                currentImportantIndex = 0;
-            }
-            document.getElementById('carousel-important-image').src = importantImages[currentImportantIndex];
-            document.getElementById('carousel-important-counter').textContent = `${currentImportantIndex + 1} / ${importantImages.length}`;
-        }
-        
+
+        const fitnessGalleryChange = setupGalleryCarousel('fitness', [
+            { title: '🏋️ GYM TRAINING', years: '6 YEARS OF TRAINING', text: "Regular gym sessions round out my fitness routine. I focus on strength training, functional movements, and maintaining overall physical health to support all my other athletic pursuits. It's also become another expressive outlet for me much like my other hobbies, I use the gym to relieve stress." },
+            { title: '🥊 BOXING', years: '6 YEARS OF TRAINING', text: "Boxing has been my primary discipline for the past six years. I train regularly, focusing on technique, conditioning, and mental toughness. The sport has taught me discipline, perseverance, and the importance of strategic thinking - skills that translate directly to problem-solving in engineering." },
+            { title: '🏂 SNOWBOARDING', years: '9 YEARS OF TRAINING', text: "Snowboarding is more of a seasonal hobby but I think that's what makes it so exciting. I get to look forward to these couple months throughout a year. The anticipation and simultaneous peace I get from riding up the ski lift is an indescribable feeling. Carving down mountains in the snow has given me comfort since I was 13, and is now something I can enjoy even now." }
+        ]);
+
+        const artGalleryChange = setupGalleryCarousel('art', [
+            { title: 'COLOSSEUM SKETCH', text: 'Pen and ink sketch drawn on location at the Colosseum in Rome, Italy.' },
+            { title: 'OCEAN STUDY', text: 'Graphite study of ocean waves.' },
+            { title: 'PORTRAIT STUDY', text: 'Graphite portrait study, built up section by section.' },
+            { title: 'WINTER PATH', text: 'Pen and ink drawing of a winter path lined with trees and lampposts.' },
+            { title: 'ROSE IN THE WIND', text: 'Graphite drawing of a rose sheltered inside a lantern.' },
+            { title: 'CHARACTER CONCEPT ART', text: 'Character design and concept art sketches.' },
+            { title: 'WATERFRONT PROMENADE', text: 'Graphite drawing of a tree-lined waterfront path.' },
+            { title: 'PORTRAIT IN SHADES', text: 'Graphite portrait drawing.' },
+            { title: 'INK MOUNTAINS', text: 'Ink and wash mountain landscape.' },
+            { title: 'MENDING THE MONARCH', text: "Graphite drawing of a hand stitching a monarch butterfly's wings back together." },
+            { title: 'BLINDFOLDED', text: 'Colored pencil portrait.' }
+        ]);
+
+        const travelGalleryChange = setupGalleryCarousel('travel', [
+            { title: '🇮🇹 PONTE VECCHIO', text: 'Experienced the rich history, art, and cuisine that inspired Renaissance masters.' },
+            { title: '🇯🇵 JAPAN', text: 'Immersed myself in the unique blend of traditional culture and cutting-edge technology.' },
+            { title: '🇰🇷 SOUTH KOREA', text: 'A rooftop sunset over the Seoul skyline.' },
+            { title: '🇨🇳 CHINA', text: 'Explored the contrast between ancient traditions and modern innovation.' },
+            { title: '🇮🇹 FLORENCE', text: 'Experienced the rich history, art, and cuisine that inspired Renaissance masters.' }
+        ]);
+
+        const foodGalleryChange = setupGalleryCarousel('food', [
+            { title: 'SICHUAN FEAST', text: 'A spicy Sichuan spread with mapo tofu, chili chicken, and fried rice.' },
+            { title: 'SKEWER MARKET', text: 'Fresh skewers at a street food market.' },
+            { title: 'IZAKAYA NIGHT', text: 'A Japanese izakaya spread of takoyaki, okonomiyaki, and yakitori.' },
+            { title: 'TAKE 31', text: 'Korean fusion small plates — corn cheese, bossam, and crispy tots.' },
+            { title: 'SHARED PLATES', text: 'Sharing a hot pot and small plates with friends.' }
+        ]);
+
+        const importantGalleryChange = setupGalleryCarousel('important', [
+            { title: 'FAMILY', text: 'Spending quality time with family.' },
+            { title: 'FRIENDS', text: 'Catching up with close friends over dinner.' },
+            { title: 'FRIENDS', text: 'More time with the people who matter most.' }
+        ]);
+
         function copyEmail() {
             const email = 'auyeungikyle@gmail.com';
             navigator.clipboard.writeText(email).then(() => {
